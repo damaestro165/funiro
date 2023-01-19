@@ -20,7 +20,7 @@ import { BsHeart, BsCart2 } from 'react-icons/bs';
 
 function TopBar() {
   return (
-    <Flex alignItems='center' justifyContent='center' gap='2rem' m>
+    <Flex alignItems='center' justifyContent='center' gap='2rem'>
       <Heading fontSize='2xl'>Funiro.</Heading>
       <Menu isLazy>
         <MenuButton>

@@ -34,7 +34,7 @@ function ImageCarousel() {
         alignItems='center'
         width='100%'
         marginBottom='5'
-        px='15rem'
+        px='5rem'
       >
         <Center gap='2' width='90%'>
           {images.map((image, index) => (
