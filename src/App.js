@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import TopBar from './components/TopBar';
+import { Box } from '@chakra-ui/react';
+import ImageCarousel from './components/Carousel';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      width='100%'
+      h='774px'
+      py='2rem'
+      bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
+    >
+      <TopBar />
+      <ImageCarousel />
+    </Box>
   );
 }
 
