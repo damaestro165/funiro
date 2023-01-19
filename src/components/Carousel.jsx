@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
-import { Box, Image, Stack, Flex, Button, Circle } from '@chakra-ui/react';
+import {
+  Box,
+  Image,
+  Stack,
+  Flex,
+  Button,
+  Circle,
+  Center,
+} from '@chakra-ui/react';
 import ImageOne from '../assets/image1.jpg';
 import ImageTwo from '../assets/image2.jpg';
 import ImageThere from '../assets/image3.png';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 function ImageCarousel() {
-  const images = [ImageOne, ImageTwo, ImageThere, ImageThere];
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const images = [ImageOne, ImageTwo, ImageThere];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
     setCurrentIndex((currentIndex + 1) % images.length);
@@ -20,25 +29,39 @@ function ImageCarousel() {
   const nextIndex = (currentIndex + 1) % images.length;
   return (
     <Box marginTop='2rem'>
-      <Flex justifyContent='space-between' alignItems='center' width='100%'>
-        <Flex alignItems='center' justifyContent='center' gap='2' width='90%'>
+      <Flex
+        justifyContent='space-between'
+        alignItems='center'
+        width='100%'
+        marginBottom='5'
+        px='15rem'
+      >
+        <Center gap='2' width='90%'>
           {images.map((image, index) => (
             <Circle
               key={index}
-              size='8px'
+              size='0.75rem'
               bg={index === currentIndex ? '#E89F71' : '#D8D8D8'}
-              outlineOffset='5rem'
-              outlineColor={'#E89F71'}
               mr={1}
             />
           ))}
+        </Center>
+        <Flex width='10%' gap='2'>
+          <Circle
+            onClick={handlePrevious}
+            children={<ChevronLeftIcon boxSize='2rem' color='white' />}
+            size='3.5rem'
+            bg='#E89F71'
+          />
+          <Circle
+            onClick={handleNext}
+            children={<ChevronRightIcon boxSize='2rem' color='white' />}
+            size='3.5rem'
+            bg='#E89F71'
+          />
         </Flex>
-        <Box>
-          <Button onClick={handlePrevious}>Previous</Button>
-          <Button onClick={handleNext}>Next</Button>
-        </Box>
       </Flex>
-      <Flex align='center' justify='center' w='100%' h='553px'>
+      <Flex align='center' justify='center' w='100%'>
         <Stack w='100%' align='center' justify='center' spacing={10}>
           <Flex
             alignItems='center'
@@ -48,26 +71,26 @@ function ImageCarousel() {
             justifyContent='center'
           >
             <Image
-              w='884px'
-              h='553px'
+              w='800px'
+              h='500px'
               src={images[prevIndex]}
               alt='Slider Image'
             />
             <Image
-              w='884px'
-              h='553px'
+              w='800px'
+              h='500px'
               src={images[currentIndex]}
               alt='Slider Image'
             />
             <Image
-              w='884px'
-              h='553px'
+              w='800px'
+              h='500px'
               src={images[nextIndex]}
               alt='Slider Image'
             />
             <Image
-              w='884px'
-              h='553px'
+              w='800px'
+              h='500px'
               src={images[nextIndex]}
               alt='Slider Image'
             />
