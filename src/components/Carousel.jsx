@@ -33,6 +33,7 @@ function ImageCarousel() {
         justifyContent='space-between'
         alignItems='center'
         width='100%'
+        marginTop='5'
         marginBottom='5'
         px='5rem'
       >
