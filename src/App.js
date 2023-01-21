@@ -11,6 +11,7 @@ import {
 import ImageCarousel from './components/Carousel';
 import { BsArrowRightShort } from 'react-icons/bs';
 import Feature from './components/Feature';
+import ProductsSection from './components/ProductsSection';
 
 function App() {
   return (
@@ -83,6 +84,7 @@ function App() {
         </Flex>
       </Box>
       <Feature />
+      <ProductsSection />
     </Box>
   );
 }
