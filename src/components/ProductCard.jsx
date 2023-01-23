@@ -6,10 +6,13 @@ import {
   Heading,
   Flex,
   Stack,
-  Box,
   Center,
   Button,
+  HStack,
+  Icon,
 } from '@chakra-ui/react';
+import { HiShare } from 'react-icons/hi';
+import { BsHeart } from 'react-icons/bs';
 import React, { useState } from 'react';
 
 const ProductCard = ({ data }) => {
@@ -35,17 +38,29 @@ const ProductCard = ({ data }) => {
           </Flex>
         </Stack>
         <Center
-          display={isVisible ? 'block' : 'none'}
+          display={isVisible ? 'flex' : 'none'}
           position='absolute'
           w='full'
           h='full'
-          backdropFilter='auto'
-          backdropBlur='5px'
-          backgroundColor='#3A3A3A'
+          bg='blackAlpha.500'
           top='0'
           right='0'
+          px='2rem'
+          flexDir='column'
+          gap={5}
         >
-          <Button>Check Out</Button>
+          <Button w='full' color='#E89F71' backgroundColor='white'>
+            Check Out
+          </Button>
+          <HStack spacing={6}>
+            <HStack color='white'>
+              <Icon as={HiShare} /> <Text>Share</Text>
+            </HStack>
+            <HStack color='white'>
+              <Icon as={BsHeart} />
+              <Text>Like</Text>
+            </HStack>
+          </HStack>
         </Center>
       </CardBody>
     </Card>
