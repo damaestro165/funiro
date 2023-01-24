@@ -1,4 +1,4 @@
-import { Box, Center, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Center, Heading, SimpleGrid, Button } from '@chakra-ui/react';
 import React from 'react';
 import ProductCard from './ProductCard';
 import Productone from '../assets/productone.png';
@@ -70,6 +70,18 @@ function ProductsSection() {
             <ProductCard data={data} key={index} />
           ))}
         </SimpleGrid>
+      </Center>
+      <Center>
+        <Button
+          color='#E89F71'
+          borderColor='#E89F71'
+          borderWidth='thin'
+          bg='white'
+          px='5rem'
+          py='1.5rem'
+        >
+          Show more
+        </Button>
       </Center>
     </Box>
   );

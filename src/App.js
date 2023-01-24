@@ -12,6 +12,7 @@ import ImageCarousel from './components/Carousel';
 import { BsArrowRightShort } from 'react-icons/bs';
 import Feature from './components/Feature';
 import ProductsSection from './components/ProductsSection';
+import Inspiration from './components/Inspiration';
 
 function App() {
   return (
@@ -85,6 +86,7 @@ function App() {
       </Box>
       <Feature />
       <ProductsSection />
+      <Inspiration />
     </Box>
   );
 }
