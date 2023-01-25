@@ -38,50 +38,40 @@ function Inspiration() {
       gap={5}
       paddingLeft='5rem'
     >
-      <Center flexDirection='column' gap={5} p='2rem' width='40%'>
-        <Heading>50+ Beautiful rooms inspiration</Heading>
-        <Text>
+      <Center
+        flexDirection='column'
+        gap={5}
+        p='3rem'
+        width='40%'
+        alignItems='start'
+      >
+        <Heading fontSize='4xl'>50+ Beautiful rooms inspiration</Heading>
+        <Text fontWeight='medium'>
           Our designer already made a lot of beautiful prototipe of rooms that
           inspire you
         </Text>
-        <Button>Explore More</Button>
+
+        <Button height='48px' width='176px' color='white' bg='#E89F71'>
+          Explore More
+        </Button>
       </Center>
       <Box width='60%'>
-        <Flex
-          justifyContent='space-between'
-          alignItems='center'
-          width='100%'
-          marginTop='5'
-          marginBottom='5'
-          px='5rem'
-        >
-          <Center gap='2' width='90%'>
-            {images.map((image, index) => (
-              <Circle
-                key={index}
-                size='0.75rem'
-                bg={index === currentIndex ? '#E89F71' : '#D8D8D8'}
-                mr={1}
-              />
-            ))}
-          </Center>
-          <Flex width='10%' gap='2'>
-            <Circle
-              onClick={handlePrevious}
-              children={<ChevronLeftIcon boxSize='2rem' color='white' />}
-              size='3.5rem'
-              bg='#E89F71'
-            />
+        <Flex align='center' justify='center' w='100%'>
+          <Stack
+            w='100%'
+            align='center'
+            justify='center'
+            spacing={10}
+            position='relative'
+          >
             <Circle
               onClick={handleNext}
-              children={<ChevronRightIcon boxSize='2rem' color='white' />}
+              children={<ChevronRightIcon boxSize='2rem' color='#E89F71' />}
               size='3.5rem'
-              bg='#E89F71'
+              bg='white'
+              position='absolute'
+              right='0'
             />
-          </Flex>
-        </Flex>
-        <Flex align='center' justify='center' w='100%'>
-          <Stack w='100%' align='center' justify='center' spacing={10}>
             <Flex
               alignItems='center'
               w='100%'
@@ -90,30 +80,40 @@ function Inspiration() {
               justifyContent='center'
             >
               <Image
-                w='800px'
-                h='500px'
                 src={images[prevIndex]}
+                height='486px'
+                width='372px'
                 alt='Slider Image'
               />
               <Image
-                w='800px'
-                h='500px'
                 src={images[currentIndex]}
+                height='486px'
+                width='372px'
                 alt='Slider Image'
               />
               <Image
-                w='800px'
-                h='500px'
                 src={images[nextIndex]}
+                height='486px'
+                width='372px'
                 alt='Slider Image'
               />
               <Image
-                w='800px'
-                h='500px'
                 src={images[nextIndex]}
+                height='486px'
+                width='372px'
                 alt='Slider Image'
               />
             </Flex>
+            <Center gap='2' width='90%'>
+              {images.map((image, index) => (
+                <Circle
+                  key={index}
+                  size='0.75rem'
+                  bg={index === currentIndex ? '#E89F71' : '#D8D8D8'}
+                  mr={1}
+                />
+              ))}
+            </Center>
           </Stack>
         </Flex>
       </Box>
