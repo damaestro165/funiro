@@ -13,6 +13,7 @@ import { BsArrowRightShort } from 'react-icons/bs';
 import Feature from './components/Feature';
 import ProductsSection from './components/ProductsSection';
 import Inspiration from './components/Inspiration';
+import Tips from './components/Tips';
 
 function App() {
   return (
@@ -87,6 +88,7 @@ function App() {
       <Feature />
       <ProductsSection />
       <Inspiration />
+      <Tips />
     </Box>
   );
 }
