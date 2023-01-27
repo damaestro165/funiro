@@ -12,12 +12,12 @@ const Tricks = [
     date: '20 jan 2020',
   },
   {
-    image: Productone,
+    image: Producttwo,
     text: 'Solution for clean look working space',
     date: '20 jan 2020',
   },
   {
-    image: Productone,
+    image: Producttwo,
     text: 'Solution for clean look working space',
     date: '20 jan 2020',
   },
@@ -30,9 +30,9 @@ const Tricks = [
 
 function Tips() {
   return (
-    <Center>
+    <Center flexDir='column'>
       <Heading>Tips & Tricks</Heading>
-      <Box>
+      <Box display='flex' overflow='hidden' marginX='8rem' gap='2rem'>
         {Tricks.map((data) => (
           <CardTips data={data} />
         ))}

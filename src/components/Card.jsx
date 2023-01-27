@@ -1,19 +1,16 @@
-import { Card, Image, CardBody } from '@chakra-ui/react';
+import { Card, Image, CardBody, Stack, Text } from '@chakra-ui/react';
 import React from 'react';
 
 function CardTips({ data }) {
   return (
-    <Card>
-      <Image src={data.image} w='245px' h='265px' />
-      <CardBody bg='#F4F5F7'>
+    <Card flexShrink={0}>
+      <Image src={data.image} w='391px' h='251px' />
+      <CardBody>
         <Stack spacing={3}>
-          <Heading fontSize='xl'>{data.heading}</Heading>
           <Text color='#898989'>{data.text}</Text>
-          <Flex>
-            <Text fontSize='xl' fontWeight='bold'>
-              {data.price}
-            </Text>
-          </Flex>
+          <Text fontSize='xl' fontWeight='bold'>
+            {data.date}
+          </Text>
         </Stack>
       </CardBody>
     </Card>
