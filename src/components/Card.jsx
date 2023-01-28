@@ -3,8 +3,8 @@ import React from 'react';
 
 function CardTips({ data }) {
   return (
-    <Card flexShrink={0}>
-      <Image src={data.image} w='391px' h='251px' />
+    <Card flexShrink={0} boxShadow='2xl'>
+      <Image src={data.image} w='350px' h='251px' />
       <CardBody>
         <Stack spacing={3}>
           <Text color='#898989'>{data.text}</Text>
