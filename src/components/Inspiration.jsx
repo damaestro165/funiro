@@ -81,25 +81,25 @@ function Inspiration() {
             >
               <Image
                 src={images[prevIndex]}
-                height='486px'
+                height={currentIndex === 0 ? '356px' : '486px'}
                 width='372px'
                 alt='Slider Image'
               />
               <Image
                 src={images[currentIndex]}
-                height='486px'
+                height={currentIndex === 1 ? '356px' : '486px'}
                 width='372px'
                 alt='Slider Image'
               />
               <Image
                 src={images[nextIndex]}
-                height='486px'
+                height={currentIndex === 2 ? '356px' : '486px'}
                 width='372px'
                 alt='Slider Image'
               />
               <Image
                 src={images[nextIndex]}
-                height='486px'
+                height={currentIndex === 3 ? '356px' : '486px'}
                 width='372px'
                 alt='Slider Image'
               />
