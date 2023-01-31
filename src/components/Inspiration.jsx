@@ -15,7 +15,7 @@ import ImageTwo from '../assets/image2.jpg';
 import ImageThere from '../assets/image3.png';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 function Inspiration() {
-  const images = [ImageOne, ImageTwo, ImageThere];
+  const images = [ImageOne, ImageTwo, ImageThere, ImageThere];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -55,7 +55,7 @@ function Inspiration() {
           Explore More
         </Button>
       </Center>
-      <Box width='60%'>
+      <Box width='70%'>
         <Flex align='center' justify='center' w='100%'>
           <Stack
             w='100%'
@@ -74,33 +74,33 @@ function Inspiration() {
             />
             <Flex
               alignItems='center'
-              w='100%'
+              w='95%'
               overflow='hidden'
-              gap='5'
+              gap={5}
               justifyContent='center'
             >
               <Image
                 src={images[prevIndex]}
                 height={currentIndex === 0 ? '356px' : '486px'}
-                width='372px'
+                width='375px'
                 alt='Slider Image'
               />
               <Image
                 src={images[currentIndex]}
                 height={currentIndex === 1 ? '356px' : '486px'}
-                width='372px'
+                width='375px'
                 alt='Slider Image'
               />
               <Image
                 src={images[nextIndex]}
                 height={currentIndex === 2 ? '356px' : '486px'}
-                width='372px'
+                width='375px'
                 alt='Slider Image'
               />
               <Image
                 src={images[nextIndex]}
                 height={currentIndex === 3 ? '356px' : '486px'}
-                width='372px'
+                width='375px'
                 alt='Slider Image'
               />
             </Flex>

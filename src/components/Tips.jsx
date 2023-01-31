@@ -1,8 +1,9 @@
-import { Box, Center, Heading } from '@chakra-ui/react';
-import React from 'react';
+import { Box, Center, Heading, Circle } from '@chakra-ui/react';
+import React, { useState } from 'react';
 import Productone from '../assets/showcase.png';
 import Producttwo from '../assets/producttwo.png';
 import CardTips from './Card';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const Tricks = [
   {
@@ -28,14 +29,54 @@ const Tricks = [
 ];
 
 function Tips() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((currentIndex + 1) % Tricks.length);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((currentIndex - 1 + Tricks.length) % Tricks.length);
+  };
+
+  const prevIndex = (currentIndex - 1 + Tricks.length) % Tricks.length;
+  const nextIndex = (currentIndex + 1) % Tricks.length;
+
   return (
     <Center flexDir='column' gap='1.5rem' paddingY='2rem'>
       <Heading fontSize='4xl'>Tips & Tricks</Heading>
       <Box display='flex' overflow='hidden' marginX='5rem' gap='2rem'>
-        {Tricks.map((data) => (
-          <CardTips data={data} />
-        ))}
+        <Circle
+          onClick={handlePrevious}
+          children={<ChevronLeftIcon boxSize='2rem' color='#E89F71' />}
+          size='3.5rem'
+          bg='white'
+          position='absolute'
+          left='0'
+        />
+        <Circle
+          onClick={handleNext}
+          children={<ChevronRightIcon boxSize='2rem' color='#E89F71' />}
+          size='3.5rem'
+          bg='white'
+          position='absolute'
+          right='0'
+        />
+        <CardTips data={Tricks[prevIndex]} />
+        <CardTips data={Tricks[currentIndex]} />
+        <CardTips data={Tricks[nextIndex]} />
+        <CardTips data={Tricks[nextIndex]} />
       </Box>
+      <Center gap='2' width='90%' flexDir='row'>
+        {Tricks.map((trikck, index) => (
+          <Circle
+            size='0.75rem'
+            key={index}
+            bg={index === currentIndex ? '#E89F71' : '#D8D8D8'}
+            mr={1}
+          />
+        ))}
+      </Center>
     </Center>
   );
 }
