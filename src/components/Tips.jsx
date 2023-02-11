@@ -43,24 +43,30 @@ function Tips() {
   const nextIndex = (currentIndex + 1) % Tricks.length;
 
   return (
-    <Center flexDir='column' gap='1.5rem' paddingY='2rem'>
+    <Center flexDir='column' gap='1.5rem' paddingY='2rem' position='relative'>
       <Heading fontSize='4xl'>Tips & Tricks</Heading>
-      <Box display='flex' overflow='hidden' marginX='5rem' gap='2rem'>
+      <Box display='flex' overflow='hidden' marginX='5rem' gap='2rem' h='full'>
         <Circle
           onClick={handlePrevious}
           children={<ChevronLeftIcon boxSize='2rem' color='#E89F71' />}
           size='3.5rem'
+          boxShadow='2xl'
           bg='white'
           position='absolute'
-          left='0'
+          zIndex='5'
+          left='2rem'
+          bottom='14rem'
         />
         <Circle
           onClick={handleNext}
           children={<ChevronRightIcon boxSize='2rem' color='#E89F71' />}
           size='3.5rem'
+          boxShadow='2xl'
           bg='white'
           position='absolute'
-          right='0'
+          zIndex='5'
+          right='2rem'
+          bottom='14rem'
         />
         <CardTips data={Tricks[prevIndex]} />
         <CardTips data={Tricks[currentIndex]} />

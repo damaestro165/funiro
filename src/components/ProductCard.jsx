@@ -50,7 +50,7 @@ const ProductCard = ({ data }) => {
           gap={5}
         >
           <Button w='full' color='#E89F71' backgroundColor='white'>
-            Check Out
+            Add to Cart
           </Button>
           <HStack spacing={6}>
             <HStack color='white'>
