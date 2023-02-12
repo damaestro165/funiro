@@ -45,7 +45,7 @@ function Tips() {
   return (
     <Center flexDir='column' gap='1.5rem' paddingY='2rem' position='relative'>
       <Heading fontSize='4xl'>Tips & Tricks</Heading>
-      <Box display='flex' overflow='hidden' marginX='5rem' gap='2rem' h='full'>
+      <Box display='flex' overflowX='hidden' marginX='5rem' gap='2rem' h='full'>
         <Circle
           onClick={handlePrevious}
           children={<ChevronLeftIcon boxSize='2rem' color='#E89F71' />}

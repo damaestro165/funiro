@@ -14,6 +14,7 @@ import Feature from './components/Feature';
 import ProductsSection from './components/ProductsSection';
 import Inspiration from './components/Inspiration';
 import Tips from './components/Tips';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -89,6 +90,8 @@ function App() {
       <ProductsSection />
       <Inspiration />
       <Tips />
+
+      <Footer />
     </Box>
   );
 }
