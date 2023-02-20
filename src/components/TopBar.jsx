@@ -14,11 +14,14 @@ import {
   InputLeftElement,
   Icon,
   Avatar,
+  Badge,
 } from '@chakra-ui/react';
 import { ChevronDownIcon, Search2Icon } from '@chakra-ui/icons';
 import { BsHeart, BsCart2 } from 'react-icons/bs';
+import { useCart } from '../CartContext';
 
 function TopBar() {
+  const { products } = useCart();
   return (
     <Flex alignItems='center' justifyContent='center' gap='2rem'>
       <Heading fontSize='2xl'>Funiro.</Heading>
@@ -53,7 +56,15 @@ function TopBar() {
       </InputGroup>
       <Flex gap={5} alignItems='center' ml='16'>
         <Icon as={BsHeart} />
-        <Icon as={BsCart2} />
+
+        <Box>
+          <Badge colorScheme='red' borderRadius='10rem'>
+            {' '}
+            {products.length}{' '}
+          </Badge>
+          <Icon as={BsCart2} />
+        </Box>
+
         <Avatar />
       </Flex>
     </Flex>

@@ -13,9 +13,23 @@ import {
 } from '@chakra-ui/react';
 import { HiShare } from 'react-icons/hi';
 import { BsHeart } from 'react-icons/bs';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useCart } from '../CartContext';
 
 const ProductCard = ({ data }) => {
+  const { products, addToCart, removeFromCart } = useCart();
+  const [isInCart, setIsInCart] = useState(false);
+
+  // useEffect(() => {
+  //   const productIsIncart = products.find(
+  //     (product) => product.headindd === name
+  //   );
+  // });
+
+  const handleClick = () => {
+    addToCart(data);
+  };
+
   const [isVisible, setIsVisible] = useState(false);
   function over() {
     setIsVisible(true);
@@ -49,7 +63,12 @@ const ProductCard = ({ data }) => {
           flexDir='column'
           gap={5}
         >
-          <Button w='full' color='#E89F71' backgroundColor='white'>
+          <Button
+            w='full'
+            color='#E89F71'
+            backgroundColor='white'
+            onClick={handleClick}
+          >
             Add to Cart
           </Button>
           <HStack spacing={6}>
