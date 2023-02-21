@@ -8,9 +8,9 @@ import Productfour from '../assets/productfour.png';
 const Products = [
   {
     image: Productone,
-    heading: 'Bohauss',
-    text: 'Luxury big sofa 2-seat',
-    price: 'Rp 17.000.000',
+    heading: 'Syltherine',
+    text: 'Stylish cafe chair',
+    price: 'Rp 2.500.000',
   },
   {
     image: Producttwo,
@@ -20,39 +20,39 @@ const Products = [
   },
   {
     image: Productone,
-    heading: 'Bohauss',
-    text: 'Luxury big sofa 2-seat',
-    price: 'Rp 17.000.000',
+    heading: 'Lolito',
+    text: 'Luxury big sofa',
+    price: 'Rp 7.000.000',
   },
   {
     image: Producttwo,
-    heading: 'Bohauss',
-    text: 'Luxury big sofa 2-seat',
+    heading: 'Muggo',
+    text: 'Small mug',
     price: 'Rp 17.000.000',
   },
   {
     image: Productfour,
-    heading: 'Bohauss',
-    text: 'Luxury big sofa 2-seat',
+    heading: 'Pingky',
+    text: 'Cute bed set',
     price: 'Rp 17.000.000',
   },
   {
     image: Productthree,
-    heading: 'Bohauss',
-    text: 'Luxury big sofa 2-seat',
-    price: 'Rp 17.000.000',
+    heading: 'Grifo',
+    text: 'Night lamp',
+    price: 'Rp 17.000',
   },
   {
     image: Productfour,
-    heading: 'Bohauss',
-    text: 'Luxury big sofa 2-seat',
-    price: 'Rp 17.000.000',
+    heading: 'Respira',
+    text: 'Minimalist fan',
+    price: 'Rp 14.000',
   },
   {
     image: Productthree,
-    heading: 'Bohauss',
-    text: 'Luxury big sofa 2-seat',
-    price: 'Rp 17.000.000',
+    heading: 'Potty',
+    text: 'Minimalist flower pot',
+    price: 'Rp 500.00',
   },
 ];
 

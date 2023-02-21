@@ -17,17 +17,50 @@ import React, { useState, useEffect } from 'react';
 import { useCart } from '../CartContext';
 
 const ProductCard = ({ data }) => {
-  const { products, addToCart, removeFromCart } = useCart();
+  const {
+    products,
+    addToCart,
+    removeFromCart,
+    addToLiked,
+    liked,
+    removeFromLiked,
+  } = useCart();
   const [isInCart, setIsInCart] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  useEffect(() => {
+    const productIsInCart = products.find(
+      (product) => product.heading === data.heading
+    );
+    const productIsLiked = liked.find(
+      (product) => product.name === data.heading
+    );
 
-  // useEffect(() => {
-  //   const productIsIncart = products.find(
-  //     (product) => product.headindd === name
-  //   );
-  // });
+    if (productIsInCart) {
+      setIsInCart(true);
+    } else {
+      setIsInCart(false);
+    }
+
+    if (productIsLiked) {
+      setIsLiked(true);
+    } else {
+      setIsLiked(false);
+    }
+  }, [products, data.heading, liked]);
 
   const handleClick = () => {
-    addToCart(data);
+    if (isInCart) {
+      removeFromCart(data);
+    } else {
+      addToCart(data);
+    }
+  };
+  const handleLiked = () => {
+    if (isInCart) {
+      removeFromLIked(data);
+    } else {
+      addToLIked(data);
+    }
   };
 
   const [isVisible, setIsVisible] = useState(false);
@@ -76,7 +109,7 @@ const ProductCard = ({ data }) => {
               <Icon as={HiShare} /> <Text>Share</Text>
             </HStack>
             <HStack color='white'>
-              <Icon as={BsHeart} />
+              <Icon as={BsHeart} onClick={handleLiked} />
               <Text>Like</Text>
             </HStack>
           </HStack>

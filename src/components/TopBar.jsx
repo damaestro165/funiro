@@ -19,6 +19,7 @@ import {
 import { ChevronDownIcon, Search2Icon } from '@chakra-ui/icons';
 import { BsHeart, BsCart2 } from 'react-icons/bs';
 import { useCart } from '../CartContext';
+import Cart from './Cart';
 
 function TopBar() {
   const { products } = useCart();
@@ -57,13 +58,12 @@ function TopBar() {
       <Flex gap={5} alignItems='center' ml='16'>
         <Icon as={BsHeart} />
 
-        <Box>
+        <Cart>
           <Badge colorScheme='red' borderRadius='10rem'>
-            {' '}
-            {products.length}{' '}
+            {products.length}
           </Badge>
           <Icon as={BsCart2} />
-        </Box>
+        </Cart>
 
         <Avatar />
       </Flex>
