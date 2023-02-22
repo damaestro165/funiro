@@ -58,8 +58,14 @@ function TopBar() {
       <Flex gap={5} alignItems='center' ml='16'>
         <Icon as={BsHeart} />
 
-        <Cart>
-          <Badge colorScheme='red' borderRadius='10rem'>
+        <Cart products={products}>
+          <Badge
+            colorScheme='red'
+            borderRadius='10rem'
+            position='absolute'
+            top='-.6rem'
+            left='0.5rem'
+          >
             {products.length}
           </Badge>
           <Icon as={BsCart2} />
