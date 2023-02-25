@@ -23,7 +23,7 @@ import { useCart } from '../CartContext';
 import Cart from './Cart';
 
 function TopBar() {
-  const { products, removeFromCart } = useCart();
+  const { products, removeFromCart, liked } = useCart();
 
   const handleClick = (data) => {
     console.log(data);
@@ -31,7 +31,7 @@ function TopBar() {
   };
 
   const isActive = products.length === 0 ? false : true;
-
+  const isLiked = liked.length === 0 ? false : true;
   return (
     <Flex alignItems='center' justifyContent='center' gap='2rem'>
       <Heading fontSize='2xl'>Funiro.</Heading>
@@ -65,7 +65,20 @@ function TopBar() {
         />
       </InputGroup>
       <Flex gap={5} alignItems='center' ml='16'>
-        <Icon as={BsHeart} />
+        <Box position='relative'>
+          {isLiked ? (
+            <Badge
+              colorScheme='red'
+              borderRadius='10rem'
+              position='absolute'
+              top='-.6rem'
+              left='0.5rem'
+            >
+              {liked.length}
+            </Badge>
+          ) : null}
+          <Icon as={BsHeart} />
+        </Box>
 
         <Cart products={products} handleClick={handleClick}>
           {isActive ? (

@@ -12,7 +12,7 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { HiShare } from 'react-icons/hi';
-import { BsHeart } from 'react-icons/bs';
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../CartContext';
 
@@ -32,7 +32,7 @@ const ProductCard = ({ data }) => {
       (product) => product.heading === data.heading
     );
     const productIsLiked = liked.find(
-      (product) => product.name === data.heading
+      (product) => product.heading === data.heading
     );
 
     if (productIsInCart) {
@@ -55,11 +55,12 @@ const ProductCard = ({ data }) => {
       addToCart(data);
     }
   };
+
   const handleLiked = () => {
-    if (isInCart) {
-      removeFromLIked(data);
+    if (isLiked) {
+      removeFromLiked(data);
     } else {
-      addToLIked(data);
+      addToLiked(data);
     }
   };
 
@@ -102,15 +103,26 @@ const ProductCard = ({ data }) => {
             backgroundColor='white'
             onClick={handleClick}
           >
-            Add to Cart
+            {isInCart ? 'Remove From Cart' : ' Add to Cart'}
           </Button>
           <HStack spacing={6}>
             <HStack color='white'>
               <Icon as={HiShare} /> <Text>Share</Text>
             </HStack>
             <HStack color='white'>
-              <Icon as={BsHeart} onClick={handleLiked} />
-              <Text>Like</Text>
+              <Button
+                variant='unstyled'
+                onClick={handleLiked}
+                display='flex'
+                gap={2}
+              >
+                {!isLiked ? (
+                  <Icon as={BsHeart} />
+                ) : (
+                  <Icon as={BsHeartFill} color='orange.300' />
+                )}
+                <Text>Like</Text>
+              </Button>
             </HStack>
           </HStack>
         </Center>
