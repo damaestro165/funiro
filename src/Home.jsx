@@ -81,7 +81,6 @@ function Home() {
       <ProductsSection />
       <Inspiration />
       <Tips />
-      <Footer />
     </Box>
   );
 }

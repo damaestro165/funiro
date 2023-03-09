@@ -16,6 +16,7 @@ import Inspiration from './components/Inspiration';
 import Tips from './components/Tips';
 import Footer from './components/Footer';
 import { CartProvider } from './CartContext';
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -44,17 +45,18 @@ function App() {
 
 const Root = () => {
   return (
-    <CartProvider>
-      <Box
-        width='100%'
-        h='700px'
-        py='2rem'
-        bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
-      >
-        <TopBar />
-        <Outlet />
-      </Box>
-    </CartProvider>
+    <>
+      <CartProvider>
+        <Box
+          bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
+          className='py-[2rem] w-full'
+        >
+          <TopBar />
+          <Outlet />
+        </Box>
+        <Footer />
+      </CartProvider>
+    </>
   );
 };
 
