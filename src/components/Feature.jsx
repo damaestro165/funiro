@@ -34,7 +34,7 @@ const FeatureData = [
 
 function Feature() {
   return (
-    <Center p='6' my='3rem' gap='7.5rem'>
+    <Center p='6' my='3rem' gap='7.5rem' className='fixed'>
       {FeatureData.map((data) => (
         <HStack key={data.text}>
           <Image src={data.icon} width='2rem' />
