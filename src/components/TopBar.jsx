@@ -21,6 +21,7 @@ import { ChevronDownIcon, Search2Icon } from '@chakra-ui/icons';
 import { BsHeart, BsCart2 } from 'react-icons/bs';
 import { useCart } from '../CartContext';
 import Cart from './Cart';
+import MobileMenu from './MobileMenu';
 
 function TopBar() {
   const { products, removeFromCart, liked } = useCart();
@@ -32,9 +33,10 @@ function TopBar() {
 
   const isActive = products.length === 0 ? false : true;
   const isLiked = liked.length === 0 ? false : true;
+
   return (
-    <Flex alignItems='center' justifyContent='center' gap='2rem'>
-      <Heading fontSize='2xl'>Funiro.</Heading>
+    <div className=' items-center justify-center gap-[2rem] hidden lg:flex-row lg:flex '>
+      <Heading className='font-bold'>Funiro.</Heading>
       <Menu isLazy>
         <MenuButton>
           Products <ChevronDownIcon />
@@ -97,7 +99,7 @@ function TopBar() {
 
         <Avatar />
       </Flex>
-    </Flex>
+    </div>
   );
 }
 

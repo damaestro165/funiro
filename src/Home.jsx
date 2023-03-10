@@ -15,32 +15,24 @@ import Feature from './components/Feature';
 import ProductsSection from './components/ProductsSection';
 import Inspiration from './components/Inspiration';
 import Tips from './components/Tips';
-import Footer from './components/Footer';
+
 function Home() {
   return (
-    <Box position='relative'>
+    <Box className='relative w-full overflow-hidden'>
       <ImageCarousel />
       <VStack
+        className=' absolute w-[20rem] md:w-[450px] md:p-12 p-5 top-28 left-12 md:left-20'
         position='absolute'
-        width='450px'
-        p='3rem'
-        top='7rem'
-        left='5rem'
         backdropFilter='auto'
         backdropBlur='6px'
         backgroundColor='#FFFFFFB8'
         spacing={10}
       >
-        <Heading
-          fontSize='5xl'
-          fontWeight='extrabold'
-          color='#3A3A3A'
-          lineHeight='4rem'
-        >
+        <Heading className='text-md md:text-5xl font-extrabold text-[#3A3A3A] leading-10 md:leading-[4rem]'>
           High-Quality Furniture Just For You
         </Heading>
 
-        <Text fontSize='xl' color='#898989' fontWeight='medium'>
+        <Text className=' md:text-xl md:font-semibold color-[#898989]'>
           Our furniture is made from selected and best quality materials that
           are suitable for your dream home
         </Text>

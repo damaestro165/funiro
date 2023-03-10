@@ -26,6 +26,7 @@ import {
   Outlet,
 } from 'react-router-dom';
 import Home from './Home';
+import MobileMenu from './components/MobileMenu';
 
 function App() {
   const router = createBrowserRouter(
@@ -51,6 +52,7 @@ const Root = () => {
           bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
           className='py-[2rem] w-full'
         >
+          <MobileMenu />
           <TopBar />
           <Outlet />
         </Box>
