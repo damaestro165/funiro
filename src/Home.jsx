@@ -18,10 +18,10 @@ import Tips from './components/Tips';
 
 function Home() {
   return (
-    <Box className='relative w-full overflow-hidden'>
+    <Box className='relative w-full overflow-hidden mt-4 md:mt-10'>
       <ImageCarousel />
       <VStack
-        className=' absolute w-[20rem] md:w-[450px] md:p-12 p-5 top-28 left-12 md:left-20'
+        className=' absolute w-[20rem] md:w-[450px] md:p-12 p-5 top-[8rem] md:top-0 left-12 md:left-20'
         position='absolute'
         backdropFilter='auto'
         backdropBlur='6px'
@@ -49,10 +49,7 @@ function Home() {
         </Button>
       </VStack>
       <Flex
-        position='absolute'
-        p='2rem'
-        bottom='4rem'
-        right='5rem'
+        className='absolute top-[33.5rem] md:top-[28rem] right-1 p-8'
         backdropFilter='auto'
         backdropBlur='6px'
         backgroundColor='#FFFFFFB8'

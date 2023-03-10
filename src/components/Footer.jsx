@@ -4,8 +4,8 @@ import React from 'react';
 function Footer() {
   return (
     <Center>
-      <Stack
-        direction='row'
+      <Box
+        className='flex flex-col md:flex-row '
         spacing='5rem'
         borderTop='2px'
         paddingY='2rem'
@@ -34,7 +34,7 @@ function Footer() {
           <Text>My Cart</Text>
           <Text>My catalog</Text>
         </Box>
-      </Stack>
+      </Box>
     </Center>
   );
 }

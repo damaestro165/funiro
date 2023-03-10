@@ -50,7 +50,7 @@ const Root = () => {
       <CartProvider>
         <Box
           bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
-          className='py-[2rem] w-full'
+          className='py-[2rem] w-full overflow-hidden'
         >
           <MobileMenu />
           <TopBar />

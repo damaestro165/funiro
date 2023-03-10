@@ -60,12 +60,12 @@ function ProductsSection() {
   return (
     <Box>
       <Center>
-        <Heading as='h3' fontSize='2xl' color='#3A3A3A'>
+        <Heading as='h3' color='#3A3A3A' className=' text-2xl'>
           Our Products
         </Heading>
       </Center>
-      <Center my='1.5rem'>
-        <SimpleGrid columns={4} spacing={10}>
+      <Center className=' my-5'>
+        <SimpleGrid columns={[1, 2, 2, 4]} spacing={10}>
           {Products.map((data, index) => (
             <ProductCard data={data} key={index} />
           ))}
