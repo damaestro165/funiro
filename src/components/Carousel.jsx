@@ -37,7 +37,7 @@ function ImageCarousel() {
         marginBottom='5'
         px='5rem'
       >
-        <Center gap='2' width='90%'>
+        <Center gap='2' className=' w-2/3 md-w[90%]'>
           {images.map((image, index) => (
             <Circle
               key={index}
@@ -47,7 +47,7 @@ function ImageCarousel() {
             />
           ))}
         </Center>
-        <Flex width='10%' gap='2'>
+        <Flex gap='2' className=' w-1/3 md-w[10%]'>
           <Circle
             onClick={handlePrevious}
             children={<ChevronLeftIcon boxSize='2rem' color='white' />}

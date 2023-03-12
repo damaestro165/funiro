@@ -73,7 +73,7 @@ const ProductCard = ({ data }) => {
   }
 
   return (
-    <Card onMouseOver={over} onMouseOut={out} className=''>
+    <Card onMouseOver={over} onMouseOut={out} variant='outline'>
       <Image src={data.image} w='245px' h='265px' />
       <CardBody bg='#F4F5F7'>
         <Stack spacing={3}>
