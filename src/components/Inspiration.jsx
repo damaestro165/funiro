@@ -31,21 +31,18 @@ function Inspiration() {
 
   return (
     <Flex
-      flexDirection='row'
+      className='flex-col md:flex-row h-auto md:h-[600px] p-2  md:pl-5rem'
       marginTop='2rem'
       bg='#FCF8F3'
-      height='600px'
       gap={5}
-      paddingLeft='5rem'
     >
       <Center
-        flexDirection='column'
+        className='flex-col md:p-[3rem] p-5 w-full md:w-[40%] md:items-start justify-items-center text-center  md:text-left'
         gap={5}
-        p='3rem'
-        width='40%'
-        alignItems='start'
       >
-        <Heading fontSize='4xl'>50+ Beautiful rooms inspiration</Heading>
+        <Heading fontSize='4xl' className=''>
+          50+ Beautiful rooms inspiration
+        </Heading>
         <Text fontWeight='medium'>
           Our designer already made a lot of beautiful prototipe of rooms that
           inspire you
@@ -55,7 +52,7 @@ function Inspiration() {
           Explore More
         </Button>
       </Center>
-      <Box width='70%'>
+      <Box className='md:w-[70%] '>
         <Flex align='center' justify='center' w='100%'>
           <Stack
             w='100%'

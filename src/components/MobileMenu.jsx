@@ -47,7 +47,7 @@ function MobileMenu() {
 
   return (
     <div className='lg:hidden flex justify-between w-full p-4 '>
-      <Heading className='w-4/5'>Funiro</Heading>
+      <Heading className='w-4/5'>Funiro.</Heading>
       <Button
         ref={btnRef}
         as={IconButton}
