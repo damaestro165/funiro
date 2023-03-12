@@ -28,7 +28,10 @@ function ImageCarousel() {
   const prevIndex = (currentIndex - 1 + images.length) % images.length;
   const nextIndex = (currentIndex + 1) % images.length;
   return (
-    <Box marginTop='2rem'>
+    <Box
+      className='pt-2 md:pt-[5rem]'
+      bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
+    >
       <Flex
         justifyContent='space-between'
         alignItems='center'
@@ -37,7 +40,7 @@ function ImageCarousel() {
         marginBottom='5'
         px='5rem'
       >
-        <Center gap='2' className=' w-2/3 md-w[90%]'>
+        <Center gap='2' className=' w-2/3 md:w-[90%]'>
           {images.map((image, index) => (
             <Circle
               key={index}
@@ -47,7 +50,7 @@ function ImageCarousel() {
             />
           ))}
         </Center>
-        <Flex gap='2' className=' w-1/3 md-w[10%]'>
+        <Flex gap='2' className=' w-1/3 md:w-[10%]'>
           <Circle
             onClick={handlePrevious}
             children={<ChevronLeftIcon boxSize='2rem' color='white' />}
@@ -72,25 +75,25 @@ function ImageCarousel() {
             justifyContent='center'
           >
             <Image
-              w='800px'
+              w='550px'
               h='500px'
               src={images[prevIndex]}
               alt='Slider Image'
             />
             <Image
-              w='800px'
+              w='550px'
               h='500px'
               src={images[currentIndex]}
               alt='Slider Image'
             />
             <Image
-              w='800px'
+              w='550px'
               h='500px'
               src={images[nextIndex]}
               alt='Slider Image'
             />
             <Image
-              w='800px'
+              w='550px'
               h='500px'
               src={images[nextIndex]}
               alt='Slider Image'

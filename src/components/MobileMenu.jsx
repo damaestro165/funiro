@@ -46,7 +46,10 @@ function MobileMenu() {
   const isLiked = liked.length === 0 ? false : true;
 
   return (
-    <div className='lg:hidden flex justify-between w-full p-4 '>
+    <Box
+      className='lg:hidden flex justify-between w-full p-4 '
+      bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
+    >
       <Heading className='w-4/5'>Funiro.</Heading>
       <Button
         ref={btnRef}
@@ -136,7 +139,7 @@ function MobileMenu() {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </div>
+    </Box>
   );
 }
 

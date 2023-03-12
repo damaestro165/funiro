@@ -35,7 +35,10 @@ function TopBar() {
   const isLiked = liked.length === 0 ? false : true;
 
   return (
-    <div className=' items-center justify-center gap-[2rem] hidden lg:flex-row lg:flex '>
+    <Box
+      className=' items-center justify-center gap-[2rem] hidden lg:flex-row lg:flex h-[5rem] '
+      bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
+    >
       <Heading className='font-bold'>Funiro.</Heading>
       <Menu isLazy>
         <MenuButton>
@@ -99,7 +102,7 @@ function TopBar() {
 
         <Avatar />
       </Flex>
-    </div>
+    </Box>
   );
 }
 

@@ -18,17 +18,16 @@ import Tips from './components/Tips';
 
 function Home() {
   return (
-    <Box className='relative w-full overflow-hidden mt-4 md:mt-10'>
+    <Box className='relative w-full overflow-hidden '>
       <ImageCarousel />
       <VStack
-        className=' absolute w-[20rem] md:w-[450px] md:p-12 p-5 top-[8rem] md:top-0 left-12 md:left-20'
+        className=' absolute w-[20rem] md:w-[25rem] md:p-12 p-5 top-[8rem] md:top-0 left-12 md:left-20 gap-2  md:gap-5'
         position='absolute'
         backdropFilter='auto'
         backdropBlur='6px'
         backgroundColor='#FFFFFFB8'
-        spacing={10}
       >
-        <Heading className='text-md md:text-5xl font-extrabold text-[#3A3A3A] leading-10 md:leading-[4rem]'>
+        <Heading className='text-sm md:text-5xl font-extrabold text-[#3A3A3A] leading-10 md:leading-[4rem]'>
           High-Quality Furniture Just For You
         </Heading>
 
@@ -38,18 +37,18 @@ function Home() {
         </Text>
 
         <Button
+          height={{ base: '3.5rem', md: '78px' }}
           backgroundColor='#E89F71'
           color='white'
           fontSize='xl'
           fontWeight='light'
-          h='78px'
           w='full'
         >
           Shop Now
         </Button>
       </VStack>
       <Flex
-        className='absolute top-[33.5rem] md:top-[28rem] right-1 p-8'
+        className='absolute top-[30rem] md:top-[28rem] right-1 p-3 md:p-8'
         backdropFilter='auto'
         backdropBlur='6px'
         backgroundColor='#FFFFFFB8'

@@ -36,8 +36,8 @@ function Inspiration() {
       bg='#FCF8F3'
       gap={5}
     >
-      <Center
-        className='flex-col md:p-[3rem] p-5 w-full md:w-[40%] md:items-start justify-items-center text-center  md:text-left'
+      <Flex
+        className='flex-col md:p-[3rem] p-5 w-full md:w-[40%] text-center items-center md:items-start  md:justify-center  md:text-left'
         gap={5}
       >
         <Heading fontSize='4xl' className=''>
@@ -48,10 +48,16 @@ function Inspiration() {
           inspire you
         </Text>
 
-        <Button height='48px' width='176px' color='white' bg='#E89F71'>
+        <Button
+          height='48px'
+          width='176px'
+          color='white'
+          bg='#E89F71'
+          className='justify-self-start'
+        >
           Explore More
         </Button>
-      </Center>
+      </Flex>
       <Box className='md:w-[70%] '>
         <Flex align='center' justify='center' w='100%'>
           <Stack
@@ -79,25 +85,25 @@ function Inspiration() {
               <Image
                 src={images[prevIndex]}
                 height={currentIndex === 0 ? '356px' : '486px'}
-                width='375px'
+                className='w-full md:w-[375px]'
                 alt='Slider Image'
               />
               <Image
                 src={images[currentIndex]}
                 height={currentIndex === 1 ? '356px' : '486px'}
-                width='375px'
+                className='w-full md:w-[375px]'
                 alt='Slider Image'
               />
               <Image
                 src={images[nextIndex]}
                 height={currentIndex === 2 ? '356px' : '486px'}
-                width='375px'
+                className='w-full md:w-[375px]'
                 alt='Slider Image'
               />
               <Image
                 src={images[nextIndex]}
                 height={currentIndex === 3 ? '356px' : '486px'}
-                width='375px'
+                className='w-full md:w-[375px]'
                 alt='Slider Image'
               />
             </Flex>
