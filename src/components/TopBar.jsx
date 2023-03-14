@@ -1,6 +1,5 @@
 import React from 'react';
 import { removeFromCart } from '../store';
-
 import {
   Box,
   Flex,
@@ -18,10 +17,10 @@ import {
   Badge,
 } from '@chakra-ui/react';
 import { ChevronDownIcon, Search2Icon } from '@chakra-ui/icons';
-import { BsHeart, BsCart2 } from 'react-icons/bs';
+import { BsHeart, BsCart2, BsCart } from 'react-icons/bs';
 
-import Cart from './Cart';
 import { useSelector } from 'react-redux';
+import Favourite from './Favourite';
 
 function TopBar() {
   const { products, liked } = useSelector(({ cart, favourite }) => {
@@ -74,23 +73,8 @@ function TopBar() {
         />
       </InputGroup>
       <Flex gap={5} alignItems='center' ml='16'>
-        <Box position='relative'>
+        <Favourite items={liked} handleClick={handleClick}>
           {isLiked ? (
-            <Badge
-              colorScheme='red'
-              borderRadius='10rem'
-              position='absolute'
-              top='-.6rem'
-              left='0.5rem'
-            >
-              {liked.length}
-            </Badge>
-          ) : null}
-          <Icon as={BsHeart} />
-        </Box>
-
-        <Cart products={products} handleClick={handleClick}>
-          {isActive ? (
             <Badge
               colorScheme='red'
               borderRadius='10rem'
@@ -101,9 +85,10 @@ function TopBar() {
               {products.length}
             </Badge>
           ) : null}
-          <Icon as={BsCart2} />
-        </Cart>
+          <Icon as={BsHeart} />
+        </Favourite>
 
+        <Icon as={BsCart} />
         <Avatar />
       </Flex>
     </Box>

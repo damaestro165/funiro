@@ -16,16 +16,19 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../store';
+import { addToCart, removeFromFavourite } from '../store';
 
-function Cart({ children, products }) {
-  const productInCart = products.length === 0 ? false : true;
+function Favourite({ children, items }) {
+  const productInCart = items.length === 0 ? false : true;
   const dispatch = useDispatch();
 
-  const handleClick = (data) => {
-    dispatch(removeFromCart(data));
+  const handleRemoveFavourite = (data) => {
+    dispatch(removeFromFavourite(data));
   };
 
+  const handleAddToCart = (data) => {
+    dispatch(addToCart(data));
+  };
   return (
     <Popover closeOnBlur={false}>
       <PopoverTrigger>
@@ -37,7 +40,7 @@ function Cart({ children, products }) {
           <PopoverCloseButton />
           {productInCart ? (
             <PopoverBody>
-              {products.map((product) => (
+              {items.map((product) => (
                 <Flex
                   key={product.heading}
                   mb={2}
@@ -64,21 +67,25 @@ function Cart({ children, products }) {
                     </Flex>
                   </HStack>
                   <Flex flexDirection='column' gap={2}>
-                    <Button fontSize='sm' variant='link' color='orange.300'>
-                      Check Out
+                    <Button
+                      fontSize='sm'
+                      variant='link'
+                      color='orange.300'
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      Add To Cart
                     </Button>
                     <Button
                       fontSize='sm'
                       variant='link'
                       color='red'
-                      onClick={() => handleClick(product)}
+                      onClick={() => handleRemoveFavourite(product)}
                     >
                       Remove
                     </Button>
                   </Flex>
                 </Flex>
               ))}
-              <Button colorScheme='teal'>Check Out All</Button>
             </PopoverBody>
           ) : (
             <PopoverBody>
@@ -93,4 +100,4 @@ function Cart({ children, products }) {
   );
 }
 
-export default Cart;
+export default Favourite;
