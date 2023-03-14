@@ -14,19 +14,26 @@ import {
 import { HiShare } from 'react-icons/hi';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import React, { useState, useEffect } from 'react';
-import { useCart } from '../CartContext';
+
+import {
+  addToCart,
+  addToFavourite,
+  removeFromCart,
+  removeFromFavourite,
+} from '../store';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductCard = ({ data }) => {
-  const {
-    products,
-    addToCart,
-    removeFromCart,
-    addToLiked,
-    liked,
-    removeFromLiked,
-  } = useCart();
+  const dispatch = useDispatch();
+  const { products, liked } = useSelector(({ cart, favourite }) => {
+    return {
+      products: cart.products,
+      liked: favourite.like,
+    };
+  });
   const [isInCart, setIsInCart] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+
   useEffect(() => {
     const productIsInCart = products.find(
       (product) => product.heading === data.heading
@@ -50,17 +57,17 @@ const ProductCard = ({ data }) => {
 
   const handleClick = () => {
     if (isInCart) {
-      removeFromCart(data);
+      dispatch(removeFromCart(data));
     } else {
-      addToCart(data);
+      dispatch(addToCart(data));
     }
   };
 
   const handleLiked = () => {
     if (isLiked) {
-      removeFromLiked(data);
+      dispatch(removeFromFavourite(data));
     } else {
-      addToLiked(data);
+      dispatch(addToFavourite(data));
     }
   };
 

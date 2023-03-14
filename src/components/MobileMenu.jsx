@@ -27,22 +27,28 @@ import {
   Avatar,
   Badge,
 } from '@chakra-ui/react';
-
+import Cart from './Cart';
 import { ChevronDownIcon, HamburgerIcon, Search2Icon } from '@chakra-ui/icons';
 import { BsHeart, BsCart2 } from 'react-icons/bs';
-import { useCart } from '../CartContext';
-import Cart from './Cart';
+import { useDispatch, useSelector } from 'react-redux';
+
 function MobileMenu() {
+  const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  const { products, removeFromCart, liked } = useCart();
 
+  const { products, liked } = useSelector(({ cart, favourite }) => {
+    return {
+      products: cart.products,
+      liked: favourite.like,
+    };
+  });
   const handleClick = (data) => {
-    console.log(data);
-    removeFromCart(data);
+    dispatch(removeFromCart(data));
   };
 
   const isActive = products.length === 0 ? false : true;
+
   const isLiked = liked.length === 0 ? false : true;
 
   return (

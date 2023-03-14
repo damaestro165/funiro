@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Center,
-  Divider,
   Flex,
   HStack,
   Image,
@@ -10,23 +9,21 @@ import {
   PopoverBody,
   PopoverCloseButton,
   PopoverContent,
-  PopoverFooter,
   PopoverHeader,
   PopoverTrigger,
   Portal,
   Text,
-  VStack,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
-import { useCart } from '../CartContext';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from '../store';
 
 function Cart({ children, products }) {
   const productInCart = products.length === 0 ? false : true;
-
-  const { removeFromCart } = useCart();
+  const dispatch = useDispatch();
 
   const handleClick = (data) => {
-    removeFromCart(data);
+    dispatch(removeFromCart(data));
   };
 
   return (

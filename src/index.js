@@ -5,6 +5,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
 import '@fontsource/roboto';
 import './index.css';
+import { store } from './store';
+import { Provider } from 'react-redux';
 
 const theme = extendTheme({
   fonts: {
@@ -15,7 +17,9 @@ const theme = extendTheme({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ChakraProvider theme={theme}>
-    <App />
-  </ChakraProvider>
+  <Provider store={store}>
+    <ChakraProvider theme={theme}>
+      <App />
+    </ChakraProvider>
+  </Provider>
 );

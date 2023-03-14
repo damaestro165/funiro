@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { removeFromCart } from '../store';
 
 import {
   Box,
   Flex,
   Heading,
-  HStack,
   Menu,
   MenuButton,
   MenuList,
@@ -19,13 +19,17 @@ import {
 } from '@chakra-ui/react';
 import { ChevronDownIcon, Search2Icon } from '@chakra-ui/icons';
 import { BsHeart, BsCart2 } from 'react-icons/bs';
-import { useCart } from '../CartContext';
+
 import Cart from './Cart';
-import MobileMenu from './MobileMenu';
+import { useSelector } from 'react-redux';
 
 function TopBar() {
-  const { products, removeFromCart, liked } = useCart();
-
+  const { products, liked } = useSelector(({ cart, favourite }) => {
+    return {
+      products: cart.products,
+      liked: favourite.like,
+    };
+  });
   const handleClick = (data) => {
     console.log(data);
     removeFromCart(data);
