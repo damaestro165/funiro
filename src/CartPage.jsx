@@ -1,65 +1,51 @@
 import React from 'react';
 import { VStack, HStack, Text, Button, Image, Spacer } from '@chakra-ui/react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 
 const CartPage = () => {
-  const products = [
-    {
-      id: 1,
-      name: 'Product 1',
-      price: 9.99,
-      image: 'https://via.placeholder.com/150',
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      price: 19.99,
-      image: 'https://via.placeholder.com/150',
-      quantity: 2,
-    },
-  ];
+  const products = useSelector((state) => state.cart.products);
 
-  const handleDecreaseQuantity = (productId) => {
+  const handleDecreaseQuantity = (product) => {
     // decrease quantity logic
   };
 
-  const handleIncreaseQuantity = (productId) => {
+  const handleIncreaseQuantity = (product) => {
     // increase quantity logic
   };
 
-  const handleRemoveProduct = (productId) => {
+  const handleRemoveProduct = (product) => {
     // remove product logic
   };
 
   return (
     <VStack spacing={4} alignItems='stretch'>
       {products.map((product) => (
-        <HStack key={product.id} spacing={4}>
+        <HStack key={product.headind} spacing={4}>
           <Image
             src={product.image}
-            alt={product.name}
+            alt={product.heading}
             boxSize='150px'
             objectFit='contain'
           />
           <VStack alignItems='start'>
             <Text fontSize='xl' fontWeight='bold'>
-              {product.name}
+              {product.heading}
             </Text>
-            <Text fontSize='md'>Price: ${product.price.toFixed(2)}</Text>
+            <Text fontSize='md'>Price: ${product.price}</Text>
             <HStack>
               <Button
                 size='sm'
                 variant='outline'
-                onClick={() => handleDecreaseQuantity(product.id)}
+                onClick={() => handleDecreaseQuantity(product.heading)}
               >
                 <AiOutlineMinus />
               </Button>
-              <Text fontSize='md'>{product.quantity}</Text>
+              <Text fontSize='md'></Text>
               <Button
                 size='sm'
                 variant='outline'
-                onClick={() => handleIncreaseQuantity(product.id)}
+                onClick={() => handleIncreaseQuantity(product)}
               >
                 <AiOutlinePlus />
               </Button>
@@ -67,7 +53,7 @@ const CartPage = () => {
               <Button
                 size='sm'
                 variant='outline'
-                onClick={() => handleRemoveProduct(product.id)}
+                onClick={() => handleRemoveProduct(product)}
               >
                 Remove
               </Button>

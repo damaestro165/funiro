@@ -30,13 +30,10 @@ function TopBar() {
       liked: favourite.like,
     };
   });
-  const handleClick = (data) => {
-    console.log(data);
-    removeFromCart(data);
-  };
 
   const isActive = products.length === 0 ? false : true;
   const isLiked = liked.length === 0 ? false : true;
+  console.log(products.length);
 
   return (
     <Box
@@ -74,8 +71,23 @@ function TopBar() {
         />
       </InputGroup>
       <Flex gap={5} alignItems='center' ml='16'>
-        <Favourite items={liked} handleClick={handleClick}>
+        <Favourite items={liked}>
           {isLiked ? (
+            <Badge
+              colorScheme='red'
+              borderRadius='10rem'
+              position='absolute'
+              top='-.6rem'
+              left='0.5rem'
+            >
+              {liked.length}
+            </Badge>
+          ) : null}
+          <Icon as={BsHeart} />
+        </Favourite>
+
+        <Box className='relative'>
+          {isActive && (
             <Badge
               colorScheme='red'
               borderRadius='10rem'
@@ -85,12 +97,11 @@ function TopBar() {
             >
               {products.length}
             </Badge>
-          ) : null}
-          <Icon as={BsHeart} />
-        </Favourite>
-        <Link to='/cart'>
-          <Icon as={BsCart} />
-        </Link>
+          )}
+          <Link to='/cart'>
+            <Icon as={BsCart} />
+          </Link>
+        </Box>
 
         <Avatar />
       </Flex>
