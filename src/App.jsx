@@ -12,12 +12,14 @@ import {
 } from 'react-router-dom';
 import Home from './Home';
 import MobileMenu from './components/MobileMenu';
+import CartPage from './CartPage';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<Root />}>
         <Route index element={<Home />} />
+        <Route path='cart' element={<CartPage />} />
       </Route>
     )
   );

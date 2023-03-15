@@ -21,6 +21,7 @@ import { BsHeart, BsCart2, BsCart } from 'react-icons/bs';
 
 import { useSelector } from 'react-redux';
 import Favourite from './Favourite';
+import { Link } from 'react-router-dom';
 
 function TopBar() {
   const { products, liked } = useSelector(({ cart, favourite }) => {
@@ -87,8 +88,10 @@ function TopBar() {
           ) : null}
           <Icon as={BsHeart} />
         </Favourite>
+        <Link to='/cart'>
+          <Icon as={BsCart} />
+        </Link>
 
-        <Icon as={BsCart} />
         <Avatar />
       </Flex>
     </Box>
