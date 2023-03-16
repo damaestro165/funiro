@@ -1,6 +1,5 @@
 import TopBar from './components/TopBar';
 import { Box } from '@chakra-ui/react';
-
 import Footer from './components/Footer';
 
 import {

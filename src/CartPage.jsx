@@ -61,11 +61,14 @@ const CartPage = () => {
           <Heading fontSize='2xl' fontWeight='extrabold'>
             Shopping Cart
           </Heading>
+
           {isCartEmpty ? (
-            <CartItems products={products} />
+            <Box className='h-[25rem]  overflow-scroll'>
+              <CartItems products={products} />
+            </Box>
           ) : (
             <Flex className='items-center justify-center flex-col'>
-              <Icon as={FaOpencart} w={250} h={250} color='orange.200' />
+              <Icon as={FaOpencart} w={250} h={250} color='#E89F71' />
               <Text fontSize='2xl' fontWeight='bold'>
                 Your Cart Is Currently Empty!
               </Text>

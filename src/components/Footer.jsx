@@ -3,7 +3,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <Box className='p-5  flex flex-col md:flex-rol justify-evenly gap-4 md:gap-0'>
+    <Box className='p-5  flex flex-col md:flex-row justify-evenly gap-4 md:gap-0 mt-5'>
       <Box className='flex flex-col gap-4 md:w-1/5'>
         <Heading fontSize='xl'>Funiro.</Heading>
         <Text>

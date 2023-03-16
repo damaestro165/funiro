@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
-
+import '@fontsource/roboto';
+import '@fontsource/quicksand';
 import './index.css';
 import { store } from './store';
 import { Provider } from 'react-redux';
-import '@fontsource/flow-circular';
 
 const theme = extendTheme({
   fonts: {
-    heading: ` "Flow Circular", sans-serif;`,
-    body: ` "Flow Circular"", sans-serif`,
+    heading: `"Roboto", sans-serif;`,
+    body: `"Quicksand", sans-serif`,
   },
 });
 

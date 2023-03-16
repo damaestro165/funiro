@@ -77,7 +77,7 @@ function Inspiration() {
             />
             <Flex
               alignItems='center'
-              w='95%'
+              className='w-full md:w-[95%]'
               overflow='hidden'
               gap={5}
               justifyContent='center'
