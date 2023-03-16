@@ -33,11 +33,10 @@ function TopBar() {
 
   const isActive = products.length === 0 ? false : true;
   const isLiked = liked.length === 0 ? false : true;
-  console.log(products.length);
 
   return (
     <Box
-      className=' items-center justify-center gap-[2rem] hidden lg:flex-row lg:flex h-[5rem] '
+      className=' items-center justify-center gap-[1rem] hidden lg:flex-row lg:flex h-[5rem] '
       bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
     >
       <Heading className='font-bold'>Funiro.</Heading>

@@ -35,7 +35,7 @@ const Root = () => {
   return (
     <>
       <Box
-        className='py-[2rem] w-full overflow-hidden '
+        className='md:py-[2rem] p-[1rem] w-full overflow-hidden '
         bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
       >
         <MobileMenu />

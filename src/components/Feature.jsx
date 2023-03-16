@@ -1,12 +1,4 @@
-import {
-  Box,
-  Center,
-  Heading,
-  Image,
-  Text,
-  HStack,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, Center, Heading, Image, Text, Stack } from '@chakra-ui/react';
 import React from 'react';
 import Checkbadge from '../assets/checkbadge.svg';
 import Headphone from '../assets/headphone.svg';
@@ -34,15 +26,18 @@ const FeatureData = [
 
 function Feature() {
   return (
-    <Center className='flex-col md:flex-row  pt-[6rem] mt-5 py-12 md:pt-10 gap-[2rem] md:gap-[5rem] md:m-5'>
+    <Center className='flex-col md:flex-row  mt-5 py-12 md:pt-10 gap-[2rem] md:gap-[5rem] md:m-5 w-full'>
       {FeatureData.map((data) => (
-        <HStack key={data.text} className='flex justify-center items-center'>
+        <Box
+          key={data.text}
+          className='flex justify-center md:flex-row flex-col items-center text-center gap-2 md:text-start'
+        >
           <Image src={data.icon} width='2rem' />
-          <Box gap={5}>
+          <Box gap={5} className=' '>
             <Heading fontSize='md'>{data.heading}</Heading>
             <Text fontSize='sm'>{data.text}</Text>
           </Box>
-        </HStack>
+        </Box>
       ))}
     </Center>
   );
