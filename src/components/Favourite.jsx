@@ -36,7 +36,7 @@ function Favourite({ children, items }) {
       </PopoverTrigger>
       <Portal>
         <PopoverContent>
-          <PopoverHeader fontWeight='semibold'>Cart</PopoverHeader>
+          <PopoverHeader fontWeight='semibold'>Favourite Items</PopoverHeader>
           <PopoverCloseButton />
           {productInCart ? (
             <PopoverBody>
@@ -90,7 +90,7 @@ function Favourite({ children, items }) {
           ) : (
             <PopoverBody>
               <Center>
-                <Text>Empty Cart</Text>
+                <Text>No Favourites</Text>
               </Center>
             </PopoverBody>
           )}

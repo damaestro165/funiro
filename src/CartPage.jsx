@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
 import {
   Box,
   Flex,
@@ -10,27 +8,17 @@ import {
   Stack,
   useColorModeValue as mode,
   HStack,
+  Icon,
   Text,
-  Button,
-  Image,
 } from '@chakra-ui/react';
 import { CartOrderSummary } from './components/CartOrderSummary';
-import { FaTimes } from 'react-icons/fa';
+import CartItems from './components/CartItems';
+import { useSelector } from 'react-redux';
+import { FaOpencart } from 'react-icons/fa';
 
 const CartPage = () => {
   const products = useSelector((state) => state.cart.products);
-
-  const handleDecreaseQuantity = (product) => {
-    // decrease quantity logic
-  };
-
-  const handleIncreaseQuantity = (product) => {
-    // increase quantity logic
-  };
-
-  const handleRemoveProduct = (product) => {
-    // remove product logic
-  };
+  const isCartEmpty = products.length === 0 ? false : true;
 
   return (
     <Box
@@ -73,76 +61,16 @@ const CartPage = () => {
           <Heading fontSize='2xl' fontWeight='extrabold'>
             Shopping Cart
           </Heading>
-          <Stack spacing='6'>
-            {products.map((product) => (
-              <Flex
-                direction={{ base: 'column', md: 'row' }}
-                justify='space-between'
-                align='center'
-                key={product.headind}
-                gap={5}
-              >
-                <Stack direction='row' spacing='5' width='full'>
-                  <Image
-                    src={product.image}
-                    alt={product.heading}
-                    boxSize='150px'
-                    rounded='lg'
-                    width='120px'
-                    height='120px'
-                    fit='cover'
-                    draggable='false'
-                    loading='lazy'
-                  />
-                  <Box>
-                    <Stack
-                      spacing='0.5'
-                      className='flex  justify-center h-full'
-                    >
-                      <Text fontWeight='bold'>{product.heading}</Text>
-                      <Text color={mode('gray.600', 'gray.400')} fontSize='sm'>
-                        {product.text}
-                      </Text>
-                    </Stack>
-                  </Box>
-                </Stack>
-                <Flex
-                  width='full'
-                  justify='space-between'
-                  display={{ base: 'flex', md: 'flex' }}
-                >
-                  <Box className='flex gap-4'>
-                    <Button
-                      size='sm'
-                      variant='outline'
-                      onClick={() => handleDecreaseQuantity(product.heading)}
-                    >
-                      <AiOutlineMinus />
-                    </Button>
-                    <Text>1</Text>
-                    <Button
-                      size='sm'
-                      x
-                      variant='outline'
-                      onClick={() => handleIncreaseQuantity(product)}
-                    >
-                      <AiOutlinePlus />
-                    </Button>
-                  </Box>
-                  <Text fontSize='md' fontWeight='bold'>
-                    Price: {product.price}
-                  </Text>
-                  <Button
-                    size='sm'
-                    variant='unstlyed'
-                    onClick={() => handleRemoveProduct(product)}
-                  >
-                    <FaTimes />
-                  </Button>
-                </Flex>
-              </Flex>
-            ))}
-          </Stack>
+          {isCartEmpty ? (
+            <CartItems products={products} />
+          ) : (
+            <Flex className='items-center justify-center flex-col'>
+              <Icon as={FaOpencart} w={250} h={250} color='orange.200' />
+              <Text fontSize='2xl' fontWeight='bold'>
+                Your Cart Is Currently Empty!
+              </Text>
+            </Flex>
+          )}
         </Stack>
         <Flex direction='column' align='center' flex='1'>
           <CartOrderSummary />
