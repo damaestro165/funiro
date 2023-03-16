@@ -9,7 +9,7 @@ const FeatureData = [
   { icon: Trophy, heading: 'High Quality', text: 'crafted from top materials' },
   {
     icon: Checkbadge,
-    heading: 'Warrany Protection',
+    heading: 'Warranty Protection',
     text: 'Over 2 years',
   },
   {

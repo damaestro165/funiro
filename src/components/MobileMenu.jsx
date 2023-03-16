@@ -32,6 +32,7 @@ import { ChevronDownIcon, HamburgerIcon, Search2Icon } from '@chakra-ui/icons';
 import { BsHeart, BsCart2 } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import Favourite from './Favourite';
+import { Link } from 'react-router-dom';
 
 function MobileMenu() {
   const dispatch = useDispatch();
@@ -57,18 +58,19 @@ function MobileMenu() {
       className='lg:hidden flex justify-between w-full py-2 px-4 '
       bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
     >
-      <Heading className='w-4/5'>Funiro.</Heading>
+      <Link to='/'>
+        <Heading>Funiro.</Heading>
+      </Link>
       <Button
         ref={btnRef}
         as={IconButton}
         aria-label='Options'
-        icon={<HamburgerIcon />}
-        variant='outline'
+        icon={<HamburgerIcon w={7} h={7} />}
+        variant='unstyled'
         color='#E89F71'
         onClick={onOpen}
-      >
-        Open
-      </Button>
+      />
+
       <Drawer
         isOpen={isOpen}
         placement='right'

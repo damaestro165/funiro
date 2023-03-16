@@ -36,10 +36,12 @@ function TopBar() {
 
   return (
     <Box
-      className=' items-center justify-center gap-[1rem] hidden lg:flex-row lg:flex h-[5rem] '
+      className=' items-center justify-evenly hidden lg:flex-row lg:flex h-[5rem] '
       bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
     >
-      <Heading className='font-bold'>Funiro.</Heading>
+      <Link to='/'>
+        <Heading className='font-bold'>Funiro.</Heading>
+      </Link>
       <Menu isLazy>
         <MenuButton>
           Products <ChevronDownIcon />
