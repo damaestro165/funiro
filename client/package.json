@@ -11,6 +11,7 @@
     "@fontsource/quicksand": "^4.5.12",
     "@fontsource/roboto": "^4.5.8",
     "@reduxjs/toolkit": "^1.9.3",
+    "@splidejs/react-splide": "^0.7.12",
     "@stripe/react-stripe-js": "^2.0.0",
     "@stripe/stripe-js": "^1.49.0",
     "@testing-library/jest-dom": "^5.16.5",

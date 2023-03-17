@@ -4,6 +4,8 @@ import Productone from '../assets/showcase.png';
 import Producttwo from '../assets/producttwo.png';
 import CardTips from './Card';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 const Tricks = [
   {
@@ -47,8 +49,8 @@ function Tips() {
       <Heading color='#3A3A3A' fontSize='3xl'>
         Tips & Tricks
       </Heading>
-      <Box display='flex' overflowX='hidden' marginX='5rem' gap='2rem' h='full'>
-        <Circle
+      <Box className='flex md:px-[5rem] w-[70%] md:w-[80%] h-full'>
+        {/* <Circle
           onClick={handlePrevious}
           children={<ChevronLeftIcon boxSize='2rem' color='#E89F71' />}
           size='3.5rem'
@@ -69,13 +71,33 @@ function Tips() {
           zIndex='5'
           right='2rem'
           bottom='14rem'
-        />
-        <CardTips data={Tricks[prevIndex]} />
-        <CardTips data={Tricks[currentIndex]} />
-        <CardTips data={Tricks[nextIndex]} />
-        <CardTips data={Tricks[nextIndex]} />
+        /> */}
+        <Splide
+          options={{
+            rewind: true,
+            gap: '1rem',
+            focus: 'center',
+
+            perPage: 3,
+
+            breakpoints: {
+              750: {
+                perPage: 1,
+                gap: '0rem',
+                padding: '0.2rem',
+                width: '100%',
+              },
+            },
+          }}
+        >
+          {Tricks.map((trick) => (
+            <SplideSlide>
+              <CardTips data={trick} />
+            </SplideSlide>
+          ))}
+        </Splide>
       </Box>
-      <Center gap='2' width='90%' flexDir='row'>
+      {/* <Center gap='2' width='90%' flexDir='row'>
         {Tricks.map((trikck, index) => (
           <Circle
             size='0.75rem'
@@ -84,7 +106,7 @@ function Tips() {
             mr={1}
           />
         ))}
-      </Center>
+      </Center> */}
     </Center>
   );
 }

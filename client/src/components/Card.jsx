@@ -3,7 +3,7 @@ import React from 'react';
 
 function CardTips({ data }) {
   return (
-    <Card flexShrink={0} boxShadow='1xl' h='full'>
+    <Card dropShadow='2xl'>
       <Image src={data.image} w='350px' h='251px' />
       <CardBody>
         <Stack spacing={3}>
