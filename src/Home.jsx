@@ -26,9 +26,9 @@ function Home() {
         backdropBlur='6px'
         backgroundColor='#FFFFFFB8'
       >
-        <Heading className='text-sm md:text-5xl font-extrabold text-[#3A3A3A] leading-10 md:leading-[4rem]'>
+        <Text className='text-sm md:text-5xl font-extrabold text-[#3A3A3A] leading-10 md:leading-[4rem]'>
           High-Quality Furniture Just For You
-        </Heading>
+        </Text>
 
         <Text className=' md:text-xl md:font-semibold color-[#898989]'>
           Our furniture is made from selected and best quality materials that

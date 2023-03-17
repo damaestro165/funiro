@@ -60,7 +60,7 @@ function ProductsSection() {
   return (
     <Box>
       <Center>
-        <Heading as='h3' color='#3A3A3A' className=' text-2xl'>
+        <Heading color='#3A3A3A' fontSize='3xl'>
           Our Products
         </Heading>
       </Center>

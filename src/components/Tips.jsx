@@ -44,7 +44,9 @@ function Tips() {
 
   return (
     <Center flexDir='column' gap='1.5rem' paddingY='2rem' position='relative'>
-      <Heading fontSize='4xl'>Tips & Tricks</Heading>
+      <Heading color='#3A3A3A' fontSize='3xl'>
+        Tips & Tricks
+      </Heading>
       <Box display='flex' overflowX='hidden' marginX='5rem' gap='2rem' h='full'>
         <Circle
           onClick={handlePrevious}
