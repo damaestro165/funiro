@@ -54,13 +54,13 @@ function ImageCarousel() {
           <Circle
             onClick={handlePrevious}
             children={<ChevronLeftIcon boxSize='2rem' color='white' />}
-            size='3.5rem'
+            size={{ base: '2rem', md: '3.5rem' }}
             bg='#E89F71'
           />
           <Circle
             onClick={handleNext}
             children={<ChevronRightIcon boxSize='2rem' color='white' />}
-            size='3.5rem'
+            size={{ base: '2rem', md: '3.5rem' }}
             bg='#E89F71'
           />
         </Flex>

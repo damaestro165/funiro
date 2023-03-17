@@ -20,23 +20,23 @@ function Home() {
     <Box className='relative w-full overflow-hidden '>
       <ImageCarousel />
       <VStack
-        className=' absolute w-[20rem] md:w-[25rem] md:p-12 p-5 top-[8rem] md:top-0 left-12 md:left-20 gap-2  md:gap-5'
+        className=' absolute w-[20rem] md:w-[25rem] md:p-12 p-5 top-[8rem] md:top-0 left-6 md:left-20 gap-2  md:gap-5'
         position='absolute'
         backdropFilter='auto'
         backdropBlur='6px'
         backgroundColor='#FFFFFFB8'
       >
-        <Heading className='text-sm md:text-3xl font-extrabold text-[#3A3A3A] leading-10 md:leading-[4rem]'>
+        <Heading className='text-xl md:text-3xl font-extrabold text-[#3A3A3A] leading-10 md:leading-[4rem]'>
           High-Quality Furniture Just For You
         </Heading>
 
-        <Text className=' md:text-xl md:font-semibold color-[#898989]'>
+        <Text className='text-sm md:text-xl md:font-semibold color-[#898989]'>
           Our furniture is made from selected and best quality materials that
           are suitable for your dream home
         </Text>
 
         <Button
-          height={{ base: '3.5rem', md: '78px' }}
+          height={{ base: '3rem', md: '78px' }}
           backgroundColor='#E89F71'
           color='white'
           fontSize='xl'

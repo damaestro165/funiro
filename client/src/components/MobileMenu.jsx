@@ -29,7 +29,7 @@ import {
 } from '@chakra-ui/react';
 
 import { ChevronDownIcon, HamburgerIcon, Search2Icon } from '@chakra-ui/icons';
-import { BsHeart, BsCart2 } from 'react-icons/bs';
+import { BsHeart, BsCart2, BsCart } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import Favourite from './Favourite';
 import { Link } from 'react-router-dom';
@@ -113,8 +113,8 @@ function MobileMenu() {
               />
             </InputGroup>
             <Flex gap={5} alignItems='center' ml='16'>
-              <Favourite items={liked} handleClick={handleClick}>
-                {isLiked ? (
+              <Box className='relative'>
+                {isActive && (
                   <Badge
                     colorScheme='red'
                     borderRadius='10rem'
@@ -124,12 +124,11 @@ function MobileMenu() {
                   >
                     {products.length}
                   </Badge>
-                ) : null}
-                <Icon as={BsHeart} />
-              </Favourite>
-
-              <Icon as={BsCart2} />
-
+                )}
+                <Link to='/cart'>
+                  <Icon as={BsCart} />
+                </Link>
+              </Box>
               <Avatar />
             </Flex>
           </DrawerBody>

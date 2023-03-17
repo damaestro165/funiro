@@ -63,7 +63,7 @@ const CartPage = () => {
           </Heading>
 
           {isCartEmpty ? (
-            <Box className='h-[27rem]  overflow-x-scroll'>
+            <Box className='md:h-[27rem]  overflow-x-scroll'>
               <CartItems products={products} />
             </Box>
           ) : (
@@ -79,7 +79,9 @@ const CartPage = () => {
           <CartOrderSummary />
           <HStack mt='6' fontWeight='semibold'>
             <p>or</p>
-            <Link color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
+            <Link color={mode('blue.500', 'blue.200')} href='/'>
+              Continue shopping
+            </Link>
           </HStack>
         </Flex>
       </Stack>
