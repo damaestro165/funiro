@@ -81,7 +81,7 @@ const ProductCard = ({ data }) => {
 
   return (
     <Card onMouseOver={over} onMouseOut={out} variant='outline'>
-      <Image src={data.image} w='245px' h='265px' />
+      <Image src={data.image} w='245px' h='265px' className=' object-cover' />
       <CardBody bg='#F4F5F7'>
         <Stack spacing={3}>
           <Heading fontSize='xl'>{data.heading}</Heading>

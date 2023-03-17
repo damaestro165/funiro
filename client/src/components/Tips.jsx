@@ -2,6 +2,8 @@ import { Box, Center, Heading, Circle } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Productone from '../assets/showcase.png';
 import Producttwo from '../assets/producttwo.png';
+import Tipso from '../assets/tipso.png';
+import Tipsa from '../assets/tipsa.png';
 import CardTips from './Card';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -15,34 +17,34 @@ const Tricks = [
   },
   {
     image: Producttwo,
-    text: 'Solution for clean look working space',
+    text: 'How to create a living room to love',
     date: '20 jan 2020',
   },
   {
-    image: Producttwo,
-    text: 'Solution for clean look working space',
+    image: Tipsa,
+    text: 'Make your cooking activity more fun with good setup',
     date: '20 jan 2020',
   },
   {
-    image: Productone,
-    text: 'Solution for clean look working space',
+    image: Tipso,
+    text: 'Solution for clean look working space and more ...',
     date: '20 jan 2020',
   },
 ];
 
 function Tips() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = () => {
-    setCurrentIndex((currentIndex + 1) % Tricks.length);
-  };
+  // const handleNext = () => {
+  //   setCurrentIndex((currentIndex + 1) % Tricks.length);
+  // };
 
-  const handlePrevious = () => {
-    setCurrentIndex((currentIndex - 1 + Tricks.length) % Tricks.length);
-  };
+  // const handlePrevious = () => {
+  //   setCurrentIndex((currentIndex - 1 + Tricks.length) % Tricks.length);
+  // };
 
-  const prevIndex = (currentIndex - 1 + Tricks.length) % Tricks.length;
-  const nextIndex = (currentIndex + 1) % Tricks.length;
+  // const prevIndex = (currentIndex - 1 + Tricks.length) % Tricks.length;
+  // const nextIndex = (currentIndex + 1) % Tricks.length;
 
   return (
     <Center flexDir='column' gap='1.5rem' paddingY='2rem' position='relative'>
@@ -75,9 +77,8 @@ function Tips() {
         <Splide
           options={{
             rewind: true,
-            gap: '1rem',
+            gap: '2rem',
             focus: 'center',
-
             perPage: 3,
 
             breakpoints: {
@@ -91,7 +92,7 @@ function Tips() {
           }}
         >
           {Tricks.map((trick) => (
-            <SplideSlide>
+            <SplideSlide key={trick.text}>
               <CardTips data={trick} />
             </SplideSlide>
           ))}

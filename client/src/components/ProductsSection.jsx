@@ -5,6 +5,10 @@ import Productone from '../assets/productone.png';
 import Producttwo from '../assets/producttwo.png';
 import Productthree from '../assets/productthree.png';
 import Productfour from '../assets/productfour.png';
+import Mug from '../assets/mug.png';
+import lamp from '../assets/lamp.png';
+import vast from '../assets/vast.png';
+import Chair from '../assets/chair.png';
 const Products = [
   {
     image: Productone,
@@ -19,25 +23,25 @@ const Products = [
     price: 'Rp 17.000.000',
   },
   {
-    image: Productone,
+    image: lamp,
     heading: 'Lolito',
     text: 'Luxury big sofa',
     price: 'Rp 7.000.000',
   },
   {
-    image: Producttwo,
+    image: Mug,
     heading: 'Muggo',
     text: 'Small mug',
     price: 'Rp 17.000.000',
   },
   {
-    image: Productfour,
+    image: Productthree,
     heading: 'Pingky',
     text: 'Cute bed set',
     price: 'Rp 17.000.000',
   },
   {
-    image: Productthree,
+    image: vast,
     heading: 'Grifo',
     text: 'Night lamp',
     price: 'Rp 17.000',
@@ -49,7 +53,7 @@ const Products = [
     price: 'Rp 14.000',
   },
   {
-    image: Productthree,
+    image: Chair,
     heading: 'Potty',
     text: 'Minimalist flower pot',
     price: 'Rp 500.00',
