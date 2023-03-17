@@ -40,15 +40,17 @@ function TopBar() {
       bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
     >
       <Link to='/'>
-        <Heading className='font-bold'>Funiro.</Heading>
+        <Heading className='font-bold' fontSize='3xl'>
+          Funiro.
+        </Heading>
       </Link>
       <Menu isLazy>
         <MenuButton>
           Products <ChevronDownIcon />
         </MenuButton>
         <MenuList>
-          <MenuItem>New Window</MenuItem>
-          <MenuItem>Open File</MenuItem>
+          <MenuItem>Chairs</MenuItem>
+          <MenuItem>Mugs</MenuItem>
         </MenuList>
       </Menu>
       <Menu isLazy>
@@ -56,12 +58,12 @@ function TopBar() {
           Rooms <ChevronDownIcon />
         </MenuButton>
         <MenuList>
-          <MenuItem>New Window</MenuItem>
-          <MenuItem>Open File</MenuItem>
+          <MenuItem>Bed Room</MenuItem>
+          <MenuItem>Sitting Room</MenuItem>
         </MenuList>
       </Menu>
       <Text>Inspirations</Text>
-      <InputGroup w='473px'>
+      <InputGroup w={{ base: '15rem', xl: '35rem' }}>
         <InputLeftElement children={<Search2Icon />} />
         <Input
           type='text'
@@ -69,6 +71,7 @@ function TopBar() {
           background='white'
           variant='unstyled'
           h='45px'
+          w={{ base: '15rem', xl: '35rem' }}
         />
       </InputGroup>
       <Flex gap={5} alignItems='center' ml='16'>

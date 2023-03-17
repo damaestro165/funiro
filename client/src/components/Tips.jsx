@@ -48,7 +48,7 @@ function Tips() {
 
   return (
     <Center flexDir='column' gap='1.5rem' paddingY='2rem' position='relative'>
-      <Heading color='#3A3A3A' fontSize='3xl'>
+      <Heading color='#3A3A3A' fontSize='3xl' my='5'>
         Tips & Tricks
       </Heading>
       <Box className='flex md:px-[5rem] w-[70%] md:w-[80%] h-full'>

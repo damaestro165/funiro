@@ -63,7 +63,7 @@ const CartPage = () => {
           </Heading>
 
           {isCartEmpty ? (
-            <Box className='h-[25rem]  overflow-scroll'>
+            <Box className='h-[27rem]  overflow-x-scroll'>
               <CartItems products={products} />
             </Box>
           ) : (

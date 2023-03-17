@@ -34,7 +34,7 @@ function CartItems({ products }) {
           direction={{ base: 'column', md: 'row' }}
           justify='space-between'
           align='center'
-          key={product.headind}
+          key={product.text}
           gap={5}
         >
           <Stack direction='row' spacing='5' width='full'>
