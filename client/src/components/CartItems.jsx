@@ -82,7 +82,7 @@ function CartItems({ products }) {
               </Button>
             </Box>
             <Text fontSize='md' fontWeight='bold'>
-              Price: {product.price}
+              ${product.price}
             </Text>
             <Button
               size='sm'

@@ -88,7 +88,7 @@ const ProductCard = ({ data }) => {
           <Text color='#898989'>{data.text}</Text>
           <Flex>
             <Text fontSize='xl' fontWeight='bold'>
-              {data.price}
+              ${data.price}
             </Text>
           </Flex>
         </Stack>

@@ -59,7 +59,7 @@ function Home() {
         <Text>Luxury big sofa 2-seat</Text>
         <Flex gap={5}>
           <Text w='90%' fontSize='2xl' fontWeight='bold'>
-            Rp 17.000.000
+            $550.00
           </Text>
           <Icon as={BsArrowRightShort} boxSize={8} />
         </Flex>

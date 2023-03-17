@@ -19,7 +19,7 @@ import { FaOpencart } from 'react-icons/fa';
 const CartPage = () => {
   const products = useSelector((state) => state.cart.products);
   const isCartEmpty = products.length === 0 ? false : true;
-
+  const subTotal = products.reduce((acc, product) => acc + product.price, 0);
   return (
     <Box
       maxW={{
@@ -76,7 +76,7 @@ const CartPage = () => {
           )}
         </Stack>
         <Flex direction='column' align='center' flex='1'>
-          <CartOrderSummary />
+          <CartOrderSummary subTotal={subTotal} />
           <HStack mt='6' fontWeight='semibold'>
             <p>or</p>
             <Link color={mode('blue.500', 'blue.200')} href='/'>
