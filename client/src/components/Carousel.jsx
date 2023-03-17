@@ -29,7 +29,7 @@ function ImageCarousel() {
   const nextIndex = (currentIndex + 1) % images.length;
   return (
     <Box
-      className='pt-2 md:pt-[5rem]'
+      className='pt-2 md:pt-[1rem]'
       bgGradient='linear(to-r, #F9F1E7 65%, #FCF8F3 35%)'
     >
       <Flex
