@@ -5,12 +5,18 @@ import {
   addToFavourite,
   removeFromFavourite,
 } from './slices/favoriteSlice';
-
+import { addUser, removeUser, userReducer } from './slices/userSlice';
 const store = configureStore({
   reducer: {
     cart: cartReducer,
     favourite: favouriteReducer,
+    user: userReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {},
+      serializableCheck: false,
+    }),
 });
 
 export {
@@ -19,4 +25,6 @@ export {
   addToFavourite,
   removeFromCart,
   removeFromFavourite,
+  addUser,
+  removeUser,
 };

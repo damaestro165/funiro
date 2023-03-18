@@ -16,7 +16,6 @@ import {
 import { increaseInCart, decreaseInCart } from '../store/slices/cartSlice';
 
 function CartItems({ products }) {
-  console.log(products);
   const dispatch = useDispatch();
   const handleDecreaseQuantity = (product) => {
     // decrease quantity logic
@@ -78,7 +77,6 @@ function CartItems({ products }) {
               <Text>{product.quantity}</Text>
               <Button
                 size='sm'
-                x
                 variant='outline'
                 onClick={() => handleIncreaseQuantity(product)}
               >

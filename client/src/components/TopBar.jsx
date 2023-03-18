@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { removeFromCart } from '../store';
 import {
   Box,
@@ -21,7 +21,7 @@ import { BsHeart, BsCart2, BsCart } from 'react-icons/bs';
 
 import { useSelector } from 'react-redux';
 import Favourite from './Favourite';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function TopBar() {
   const { products, liked } = useSelector(({ cart, favourite }) => {
@@ -33,6 +33,8 @@ function TopBar() {
 
   const isActive = products.length === 0 ? false : true;
   const isLiked = liked.length === 0 ? false : true;
+
+  const user = useSelector((state) => state.user.user);
 
   return (
     <Box
@@ -107,7 +109,13 @@ function TopBar() {
           </Link>
         </Box>
 
-        <Avatar />
+        {user === null ? (
+          <Link to='/login'>
+            <Avatar />
+          </Link>
+        ) : (
+          <Avatar name={user.email} src={user?.photoURL} />
+        )}
       </Flex>
     </Box>
   );

@@ -24,8 +24,13 @@ import {
 
 import { GoogleIcon } from './GoogleIcon';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../store';
+// import { addDoc, collection } from 'firebase/firestore';
+// import { db } from '../firebase';
 
 function AuthForm({ title, id }) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
   const passWordref = useRef('');
@@ -40,11 +45,9 @@ function AuthForm({ title, id }) {
     const authentication = getAuth();
 
     signInWithPopup(authentication, provider).then((response) => {
-      sessionStorage.setItem(
-        'Auth Token',
-        response._tokenResponse.refreshToken
-      );
-      navigate('/cart');
+      dispatch(addUser(response.user));
+      sessionStorage.setItem('User', response.user);
+      navigate('/');
     });
   };
   const handleAuth = () => {
@@ -54,19 +57,19 @@ function AuthForm({ title, id }) {
     if (id === 2) {
       createUserWithEmailAndPassword(authentication, email, password).then(
         (response) => {
-          sessionStorage.setItem(
-            'Auth Token',
-            response._tokenResponse.refreshToken
-          );
+          dispatch(addUser(response.user));
+          console.log(response.user);
+          sessionStorage.setItem('User', response.user);
+          navigate('/');
         }
       );
     } else if (id === 1) {
       signInWithEmailAndPassword(authentication, email, password).then(
         (response) => {
-          sessionStorage.setItem(
-            'Auth Token',
-            response._tokenResponse.refreshToken
-          );
+          dispatch(addUser(response.user));
+          console.log(response.user);
+          sessionStorage.setItem('User', response.user);
+          navigate('/');
         }
       );
     }
