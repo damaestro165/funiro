@@ -5,6 +5,7 @@ import {
   Container,
   Divider,
   FormControl,
+  FormLabel,
   Heading,
   HStack,
   Input,
@@ -103,6 +104,7 @@ function AuthForm({ title, id }) {
           <Stack spacing='6'>
             <Stack spacing='5'>
               <FormControl>
+                <FormLabel>Email</FormLabel>
                 <Input id='email' type='email' ref={emailRef} />
               </FormControl>
               <PasswordField ref={passWordref} />
