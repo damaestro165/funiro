@@ -2,16 +2,15 @@ import React, { useRef, useState } from 'react';
 import {
   Box,
   Button,
-  Checkbox,
   Container,
   Divider,
   FormControl,
-  FormLabel,
   Heading,
   HStack,
   Input,
   Stack,
   Text,
+  VisuallyHidden,
 } from '@chakra-ui/react';
 
 import { PasswordField } from './PasswordField';
@@ -19,18 +18,35 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from 'firebase/auth';
 
+import { GoogleIcon } from './GoogleIcon';
+import { useNavigate } from 'react-router-dom';
+
 function AuthForm({ title, id }) {
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+  const provider = new GoogleAuthProvider();
   const passWordref = useRef('');
   const emailRef = useRef('');
 
   const typeQuest =
     title === 'Sign Up' ? 'Already have an account?' : "Don't have an account?";
+
   const typeButton = title === 'Sign Up' ? 'Login' : 'Sign Up';
 
+  const googleAuth = () => {
+    const authentication = getAuth();
+
+    signInWithPopup(authentication, provider).then((response) => {
+      sessionStorage.setItem(
+        'Auth Token',
+        response._tokenResponse.refreshToken
+      );
+      navigate('/cart');
+    });
+  };
   const handleAuth = () => {
     const authentication = getAuth();
     const email = emailRef.current.value;
@@ -38,13 +54,19 @@ function AuthForm({ title, id }) {
     if (id === 2) {
       createUserWithEmailAndPassword(authentication, email, password).then(
         (response) => {
-          console.log(response);
+          sessionStorage.setItem(
+            'Auth Token',
+            response._tokenResponse.refreshToken
+          );
         }
       );
     } else if (id === 1) {
       signInWithEmailAndPassword(authentication, email, password).then(
         (response) => {
-          console.log(response);
+          sessionStorage.setItem(
+            'Auth Token',
+            response._tokenResponse.refreshToken
+          );
         }
       );
     }
@@ -92,6 +114,15 @@ function AuthForm({ title, id }) {
                 <Text fontSize='sm' whiteSpace='nowrap' color='muted'>
                   or continue with
                 </Text>
+                <Button
+                  width='full'
+                  variant='outline'
+                  colorScheme='messenger'
+                  onClick={googleAuth}
+                >
+                  <VisuallyHidden>Sign in with Google</VisuallyHidden>
+                  <GoogleIcon boxSize='5' />
+                </Button>
                 <Divider />
               </HStack>
             </Stack>
