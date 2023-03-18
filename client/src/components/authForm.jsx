@@ -21,7 +21,7 @@ import {
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
 
-function AuthForm({ title }) {
+function AuthForm({ title, id }) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const passWordref = useRef('');
@@ -33,11 +33,16 @@ function AuthForm({ title }) {
 
   const handleAuth = () => {
     const authentication = getAuth();
-    setPassword(passWordref.current.value);
-    setEmail(emailRef.current.value);
-
-    if (title === 'Sign Up') {
+    const email = emailRef.current.value;
+    const password = passWordref.current.value;
+    if (id === 2) {
       createUserWithEmailAndPassword(authentication, email, password).then(
+        (response) => {
+          console.log(response);
+        }
+      );
+    } else if (id === 1) {
+      signInWithEmailAndPassword(authentication, email, password).then(
         (response) => {
           console.log(response);
         }

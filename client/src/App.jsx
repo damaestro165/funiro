@@ -23,8 +23,8 @@ function App() {
     createRoutesFromElements(
       <Route path='/' element={<AuthRoot />}>
         <Route>
-          <Route path='login' element={<AuthForm title='Sign In' />} />
-          <Route path='/signup' element={<AuthForm title='Sign Up' />} />
+          <Route path='login' element={<AuthForm title='Sign In' id={1} />} />
+          <Route path='/signup' element={<AuthForm title='Sign Up' id={2} />} />
         </Route>
         <Route path='/' element={<Root />}>
           <Route index element={<Home />} />
