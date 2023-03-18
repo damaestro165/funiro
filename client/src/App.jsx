@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { LogIn } from './LogIn';
+
 import { app } from './firebase';
 import TopBar from './components/TopBar';
 import { Box } from '@chakra-ui/react';
 import Footer from './components/Footer';
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from 'firebase/auth';
 
 import {
   createBrowserRouter,
@@ -20,7 +15,7 @@ import {
 import Home from './Home';
 import MobileMenu from './components/MobileMenu';
 import CartPage from './CartPage';
-import SignUp from './SignUp';
+
 import AuthForm from './components/authForm';
 
 function App() {

@@ -13,15 +13,19 @@ import {
   Button,
   Image,
 } from '@chakra-ui/react';
+import { increaseInCart, decreaseInCart } from '../store/slices/cartSlice';
 
 function CartItems({ products }) {
+  console.log(products);
   const dispatch = useDispatch();
   const handleDecreaseQuantity = (product) => {
     // decrease quantity logic
+    dispatch(decreaseInCart(product));
   };
 
   const handleIncreaseQuantity = (product) => {
     // increase quantity logic
+    dispatch(increaseInCart(product));
   };
 
   const handleRemoveProduct = (product) => {
@@ -34,7 +38,7 @@ function CartItems({ products }) {
           direction={{ base: 'column', md: 'row' }}
           justify='space-between'
           align='center'
-          key={product.text}
+          key={product.id}
           gap={5}
         >
           <Stack direction='row' spacing='5' width='full'>
@@ -67,11 +71,11 @@ function CartItems({ products }) {
               <Button
                 size='sm'
                 variant='outline'
-                onClick={() => handleDecreaseQuantity(product.heading)}
+                onClick={() => handleDecreaseQuantity(product)}
               >
                 <AiOutlineMinus />
               </Button>
-              <Text>1</Text>
+              <Text>{product.quantity}</Text>
               <Button
                 size='sm'
                 x
@@ -82,7 +86,7 @@ function CartItems({ products }) {
               </Button>
             </Box>
             <Text fontSize='md' fontWeight='bold'>
-              ${product.price}
+              ${Number(product.price.toFixed(2))}
             </Text>
             <Button
               size='sm'

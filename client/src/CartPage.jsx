@@ -19,7 +19,9 @@ import { FaOpencart } from 'react-icons/fa';
 const CartPage = () => {
   const products = useSelector((state) => state.cart.products);
   const isCartEmpty = products.length === 0 ? false : true;
-  const subTotal = products.reduce((acc, product) => acc + product.price, 0);
+  const subTotal = Number(
+    products.reduce((acc, product) => acc + product.price, 0).toFixed(2)
+  );
   return (
     <Box
       maxW={{
