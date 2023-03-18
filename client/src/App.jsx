@@ -1,6 +1,14 @@
+import React, { useState, useEffect } from 'react';
+import { LogIn } from './LogIn';
+import { app } from './firebase';
 import TopBar from './components/TopBar';
 import { Box } from '@chakra-ui/react';
 import Footer from './components/Footer';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from 'firebase/auth';
 
 import {
   createBrowserRouter,
@@ -12,13 +20,21 @@ import {
 import Home from './Home';
 import MobileMenu from './components/MobileMenu';
 import CartPage from './CartPage';
+import SignUp from './SignUp';
+import AuthForm from './components/authForm';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<Root />}>
-        <Route index element={<Home />} />
-        <Route path='cart' element={<CartPage />} />
+      <Route path='/' element={<AuthRoot />}>
+        <Route>
+          <Route path='login' element={<AuthForm title='Sign In' />} />
+          <Route path='/signup' element={<AuthForm title='Sign Up' />} />
+        </Route>
+        <Route path='/' element={<Root />}>
+          <Route index element={<Home />} />
+          <Route path='cart' element={<CartPage />} />
+        </Route>
       </Route>
     )
   );
@@ -29,6 +45,15 @@ function App() {
     </div>
   );
 }
+const AuthRoot = () => {
+  return (
+    <>
+      <Box className=''>
+        <Outlet />
+      </Box>
+    </>
+  );
+};
 
 const Root = () => {
   return (
