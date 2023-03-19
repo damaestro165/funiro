@@ -17,11 +17,12 @@ import {
   Badge,
 } from '@chakra-ui/react';
 import { ChevronDownIcon, Search2Icon } from '@chakra-ui/icons';
-import { BsHeart, BsCart } from 'react-icons/bs';
+import { BsHeart, BsCart2, BsCart } from 'react-icons/bs';
 
 import { useSelector } from 'react-redux';
 import Favourite from './Favourite';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ProfilePopOver from './ProfilePopOver';
 
 function TopBar() {
   const { products, liked } = useSelector(({ cart, favourite }) => {
@@ -46,38 +47,6 @@ function TopBar() {
           Funiro.
         </Heading>
       </Link>
-      <Favourite items={liked}>
-        {isLiked ? (
-          <Badge
-            colorScheme='red'
-            borderRadius='10rem'
-            position='absolute'
-            top='-.6rem'
-            left='0.5rem'
-          >
-            {liked.length}
-          </Badge>
-        ) : null}
-        <Icon as={BsHeart} />
-      </Favourite>
-
-      <Box className='relative'>
-        {isActive && (
-          <Badge
-            colorScheme='red'
-            borderRadius='10rem'
-            position='absolute'
-            top='-.6rem'
-            left='0.5rem'
-          >
-            {products.length}
-          </Badge>
-        )}
-        <Link to='/cart'>
-          <Icon as={BsCart} />
-        </Link>
-      </Box>
-
       <Menu isLazy>
         <MenuButton>
           Products <ChevronDownIcon />
@@ -109,12 +78,46 @@ function TopBar() {
         />
       </InputGroup>
       <Flex gap={5} alignItems='center' ml='16'>
+        <Favourite items={liked}>
+          {isLiked ? (
+            <Badge
+              colorScheme='red'
+              borderRadius='10rem'
+              position='absolute'
+              top='-.6rem'
+              left='0.5rem'
+            >
+              {liked.length}
+            </Badge>
+          ) : null}
+          <Icon as={BsHeart} />
+        </Favourite>
+
+        <Box className='relative'>
+          {isActive && (
+            <Badge
+              colorScheme='red'
+              borderRadius='10rem'
+              position='absolute'
+              top='-.6rem'
+              left='0.5rem'
+            >
+              {products.length}
+            </Badge>
+          )}
+          <Link to='/cart'>
+            <Icon as={BsCart} />
+          </Link>
+        </Box>
+
         {user === null ? (
           <Link to='/login'>
             <Avatar />
           </Link>
         ) : (
-          <Avatar name={user.email} src={user?.photoURL} />
+          <ProfilePopOver user={user}>
+            <Avatar name={user.email} src={user?.photoURL} />
+          </ProfilePopOver>
         )}
       </Flex>
     </Box>

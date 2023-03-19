@@ -3,8 +3,6 @@ import React from 'react';
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
@@ -14,24 +12,21 @@ import {
   Box,
   Flex,
   Heading,
-  HStack,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   Text,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Icon,
   Avatar,
   Badge,
+  Center,
 } from '@chakra-ui/react';
 
 import { ChevronDownIcon, HamburgerIcon, Search2Icon } from '@chakra-ui/icons';
-import { BsHeart, BsCart2, BsCart } from 'react-icons/bs';
+import { BsCart } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import Favourite from './Favourite';
+
 import { Link } from 'react-router-dom';
 
 function MobileMenu() {
@@ -46,13 +41,8 @@ function MobileMenu() {
       liked: favourite.like,
     };
   });
-  const handleClick = (data) => {
-    dispatch(removeFromCart(data));
-  };
 
   const isActive = products.length === 0 ? false : true;
-
-  const isLiked = liked.length === 0 ? false : true;
 
   return (
     <Box
@@ -128,6 +118,9 @@ function MobileMenu() {
                 <Avatar name={user.email} src={user?.photoURL} />
               )}
             </Flex>
+            <Center color='black'>
+              <Text>Welcome {user?.displayName || user?.email}</Text>
+            </Center>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
