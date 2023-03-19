@@ -120,7 +120,10 @@ function MobileMenu() {
             <Flex gap={5} alignItems='center' justifyContent='center'>
               {user === null ? (
                 <Link to='/login'>
-                  <Avatar />
+                  <Center gap={5} flexDirection='column'>
+                    <Avatar />
+                    <Button colorScheme='blue'>Login</Button>
+                  </Center>
                 </Link>
               ) : (
                 <Avatar name={user.email} src={user?.photoURL} />

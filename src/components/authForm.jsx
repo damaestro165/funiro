@@ -56,7 +56,7 @@ function AuthForm({ title, id }) {
       toast({
         title: 'Login Successful ',
         position: 'top',
-        description: `welcome ${response.user.displayName}`,
+        description: `Welcome ${response.user.displayName}`,
         status: 'success',
         duration: 5000,
         isClosable: true,
@@ -77,7 +77,7 @@ function AuthForm({ title, id }) {
           toast({
             title: 'Account successfully created ',
             position: 'top',
-            description: `welcome ${response.user.email}`,
+            description: `Welcome ${response.user.email}`,
             status: 'success',
             duration: 9000,
             isClosable: true,
@@ -104,7 +104,7 @@ function AuthForm({ title, id }) {
           navigate('/');
           toast({
             title: 'Login Successful ',
-            description: `welcome ${response.user.email}`,
+            description: `Welcome ${response.user.email}`,
             status: 'success',
             duration: 5000,
             isClosable: true,
