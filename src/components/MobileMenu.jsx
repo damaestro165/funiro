@@ -26,13 +26,21 @@ import {
 import { ChevronDownIcon, HamburgerIcon, Search2Icon } from '@chakra-ui/icons';
 import { BsCart } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
+import { removeUser } from '../store';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function MobileMenu() {
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    dispatch(removeUser());
+    navigate('/');
+  };
 
   const user = useSelector((state) => state.user.user);
   const { products, liked } = useSelector(({ cart, favourite }) => {
@@ -118,9 +126,14 @@ function MobileMenu() {
                 <Avatar name={user.email} src={user?.photoURL} />
               )}
             </Flex>
-            <Center color='black'>
-              <Text>Welcome {user?.displayName || user?.email}</Text>
-            </Center>
+            {user && (
+              <Center color='black' gap={5} flexDirection='column'>
+                <Text>Welcome {user?.displayName || user?.email}</Text>
+                <Button colorScheme='red' onClick={signOut}>
+                  Sign Out
+                </Button>
+              </Center>
+            )}
           </DrawerBody>
         </DrawerContent>
       </Drawer>

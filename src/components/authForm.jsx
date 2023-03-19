@@ -13,6 +13,7 @@ import {
   Stack,
   Text,
   VisuallyHidden,
+  createStandaloneToast,
 } from '@chakra-ui/react';
 
 import { PasswordField } from './PasswordField';
@@ -32,6 +33,7 @@ import { addUser } from '../store';
 // import { db } from '../firebase';
 
 function AuthForm({ title, id }) {
+  const { ToastContainer, toast } = createStandaloneToast();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
@@ -51,6 +53,14 @@ function AuthForm({ title, id }) {
       dispatch(addUser(response.user));
       localStorage.setItem('User', JSON.stringify(response.user));
       navigate('/');
+      toast({
+        title: 'Login Successful ',
+        position: 'top',
+        description: `welcome ${response.user.displayName}`,
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
     });
   };
   const handleAuth = () => {
@@ -58,23 +68,72 @@ function AuthForm({ title, id }) {
     const email = emailRef.current.value;
     const password = passWordref.current.value;
     if (id === 2) {
-      createUserWithEmailAndPassword(authentication, email, password).then(
-        (response) => {
+      createUserWithEmailAndPassword(authentication, email, password)
+        .then((response) => {
           dispatch(addUser(response.user));
           console.log(response.user);
           localStorage.setItem('User', JSON.stringify(response.user));
           navigate('/');
-        }
-      );
+          toast({
+            title: 'Account successfully created ',
+            position: 'top',
+            description: `welcome ${response.user.email}`,
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          });
+        })
+        .catch((error) => {
+          if (error.code === 'auth/email-already-in-use') {
+            toast({
+              title: 'User already has an account.',
+              description: 'Login instead',
+              status: 'error',
+              duration: 5000,
+              isClosable: true,
+              position: 'top',
+            });
+          }
+        });
     } else if (id === 1) {
-      signInWithEmailAndPassword(authentication, email, password).then(
-        (response) => {
+      signInWithEmailAndPassword(authentication, email, password)
+        .then((response) => {
           dispatch(addUser(response.user));
           console.log(response.user);
           localStorage.setItem('User', JSON.stringify(response.user));
           navigate('/');
-        }
-      );
+          toast({
+            title: 'Login Successful ',
+            description: `welcome ${response.user.email}`,
+            status: 'success',
+            duration: 5000,
+            isClosable: true,
+            position: 'top',
+          });
+        })
+
+        .catch((error) => {
+          if (error.code === 'auth/wrong-password') {
+            toast({
+              title: 'Wrong password',
+              description: 'Check your password and retry',
+              status: 'error',
+              duration: 9000,
+              isClosable: true,
+              position: 'top',
+            });
+          }
+          if (error.code === 'auth/user-not-found') {
+            toast({
+              title: 'User not found',
+              description: 'Check your email and retry, or SignUp instead',
+              status: 'error',
+              duration: 9000,
+              isClosable: true,
+              position: 'top',
+            });
+          }
+        });
     }
   };
 

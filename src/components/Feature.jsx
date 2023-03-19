@@ -26,11 +26,11 @@ const FeatureData = [
 
 function Feature() {
   return (
-    <Center className='flex-col md:flex-row  mt-5 py-12 md:pt-10 gap-[2rem] md:gap-[5rem] md:m-5 w-full'>
+    <Center className='flex-col lg:flex-row  mt-5 py-12 md:pt-10 gap-[2rem]  lg:gap-[5rem] md:m-5 w-full'>
       {FeatureData.map((data) => (
         <Box
           key={data.text}
-          className='flex justify-center md:flex-row flex-col items-center text-center gap-2 md:text-start'
+          className='flex justify-center md:flex-row  flex-col items-center text-center gap-2 md:text-start'
         >
           <Image src={data.icon} width='2rem' />
           <Box gap={5} className=' '>
