@@ -74,6 +74,15 @@ const CartPage = () => {
               <Text fontSize='2xl' fontWeight='bold'>
                 Your Cart Is Currently Empty!
               </Text>
+              <Text>
+                <Link href='/' color='blue.400'>
+                  Go back to add items
+                </Link>{' '}
+                or{' '}
+                <Link href='/login' color='blue.400'>
+                  login to see recommendation
+                </Link>
+              </Text>
             </Flex>
           )}
         </Stack>

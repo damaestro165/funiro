@@ -39,6 +39,7 @@ function MobileMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
+  const user = useSelector((state) => state.user.user);
   const { products, liked } = useSelector(({ cart, favourite }) => {
     return {
       products: cart.products,
@@ -61,16 +62,33 @@ function MobileMenu() {
       <Link to='/'>
         <Heading>Funiro.</Heading>
       </Link>
-      <Button
-        ref={btnRef}
-        as={IconButton}
-        aria-label='Options'
-        icon={<HamburgerIcon w={7} h={7} />}
-        variant='unstyled'
-        color='#E89F71'
-        onClick={onOpen}
-      />
-
+      <Box className='flex items-center gap-2'>
+        <Box className='relative'>
+          {isActive && (
+            <Badge
+              colorScheme='red'
+              borderRadius='10rem'
+              position='absolute'
+              top='-.6rem'
+              left='0.5rem'
+            >
+              {products.length}
+            </Badge>
+          )}
+          <Link to='/cart'>
+            <Icon as={BsCart} w={5} h={5} color='#E89F71' />
+          </Link>
+        </Box>
+        <Button
+          ref={btnRef}
+          as={IconButton}
+          aria-label='Options'
+          icon={<HamburgerIcon w={7} h={7} />}
+          variant='unstyled'
+          color='#E89F71'
+          onClick={onOpen}
+        />
+      </Box>
       <Drawer
         isOpen={isOpen}
         placement='right'
@@ -80,7 +98,6 @@ function MobileMenu() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-
           <DrawerBody className='flex flex-col my-[5rem] w-full h-full gap-5 text-center text-[#E89F71]'>
             <Menu isLazy>
               <MenuButton>
@@ -102,34 +119,14 @@ function MobileMenu() {
             </Menu>
 
             <Text>Inspirations</Text>
-            <InputGroup w='473px'>
-              <InputLeftElement children={<Search2Icon />} />
-              <Input
-                type='text'
-                placeholder='search for minimalist chair'
-                background='white'
-                variant='unstyled'
-                h='45px'
-              />
-            </InputGroup>
-            <Flex gap={5} alignItems='center' ml='16'>
-              <Box className='relative'>
-                {isActive && (
-                  <Badge
-                    colorScheme='red'
-                    borderRadius='10rem'
-                    position='absolute'
-                    top='-.6rem'
-                    left='0.5rem'
-                  >
-                    {products.length}
-                  </Badge>
-                )}
-                <Link to='/cart'>
-                  <Icon as={BsCart} />
+            <Flex gap={5} alignItems='center' justifyContent='center'>
+              {user === null ? (
+                <Link to='/login'>
+                  <Avatar />
                 </Link>
-              </Box>
-              <Avatar />
+              ) : (
+                <Avatar name={user.email} src={user?.photoURL} />
+              )}
             </Flex>
           </DrawerBody>
         </DrawerContent>

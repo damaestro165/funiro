@@ -108,7 +108,7 @@ function AuthForm({ title, id }) {
                 <Input id='email' type='email' ref={emailRef} />
               </FormControl>
               <PasswordField ref={passWordref} />
-            </Stack>
+            </Stack>w
 
             <Stack spacing='6'>
               <Button variant='solid' colorScheme='orange' onClick={handleAuth}>
