@@ -3,9 +3,7 @@ import { createSlice, nanoid } from '@reduxjs/toolkit';
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    products: [
-      //items with image, title, text and price
-    ],
+    products: JSON.parse(localStorage.getItem('Cart')) || [],
   },
   reducers: {
     addToCart(state, action) {
@@ -18,12 +16,14 @@ const cartSlice = createSlice({
       } else {
         state.products.push({ ...productToAdd, quantity: 1 });
       }
+      localStorage.setItem('Cart', JSON.stringify(state.products));
     },
     removeFromCart(state, action) {
       const filteredCart = state.products.filter((product) => {
         return product.heading !== action.payload.heading;
       });
       state.products = filteredCart;
+      localStorage.setItem('Cart', JSON.stringify(state.products));
     },
     increaseInCart(state, action) {
       const product = state.products.find((product) => {
@@ -34,6 +34,7 @@ const cartSlice = createSlice({
         const price = product.price + product.price / (product.quantity - 1);
         product.price = Number(price.toFixed(2));
       }
+      localStorage.setItem('Cart', JSON.stringify(state.products));
     },
     decreaseInCart(state, action) {
       const product = state.products.find((product) => {
@@ -48,6 +49,7 @@ const cartSlice = createSlice({
           state.products;
         }
       }
+      localStorage.setItem('Cart', JSON.stringify(state.products));
     },
   },
 });

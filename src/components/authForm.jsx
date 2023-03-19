@@ -9,6 +9,7 @@ import {
   Heading,
   HStack,
   Input,
+  Link,
   Stack,
   Text,
   VisuallyHidden,
@@ -41,13 +42,14 @@ function AuthForm({ title, id }) {
     title === 'Sign Up' ? 'Already have an account?' : "Don't have an account?";
 
   const typeButton = title === 'Sign Up' ? 'Login' : 'Sign Up';
+  const linkText = title === 'Sign Up' ? 'login' : 'signup';
 
   const googleAuth = () => {
     const authentication = getAuth();
 
     signInWithPopup(authentication, provider).then((response) => {
       dispatch(addUser(response.user));
-      sessionStorage.setItem('User', response.user);
+      localStorage.setItem('User', JSON.stringify(response.user));
       navigate('/');
     });
   };
@@ -60,7 +62,7 @@ function AuthForm({ title, id }) {
         (response) => {
           dispatch(addUser(response.user));
           console.log(response.user);
-          sessionStorage.setItem('User', response.user);
+          localStorage.setItem('User', JSON.stringify(response.user));
           navigate('/');
         }
       );
@@ -69,7 +71,7 @@ function AuthForm({ title, id }) {
         (response) => {
           dispatch(addUser(response.user));
           console.log(response.user);
-          sessionStorage.setItem('User', response.user);
+          localStorage.setItem('User', JSON.stringify(response.user));
           navigate('/');
         }
       );
@@ -85,11 +87,14 @@ function AuthForm({ title, id }) {
       <Stack spacing='8'>
         <Stack spacing='6'>
           <Stack spacing={{ base: '2', md: '3' }} textAlign='center'>
+            <Link href='/'>
+              <Heading size={{ base: 'sm', md: 'xl' }}>Funiro.</Heading>
+            </Link>
             <Heading size={{ base: 'xs', md: 'sm' }}>{title}</Heading>
             <HStack spacing='1' justify='center'>
               <Text color='muted'>{typeQuest}</Text>
               <Button variant='link' colorScheme='blue'>
-                {typeButton}
+                <Link href={`/${linkText}`}> {typeButton}</Link>
               </Button>
             </HStack>
           </Stack>
@@ -108,8 +113,8 @@ function AuthForm({ title, id }) {
                 <Input id='email' type='email' ref={emailRef} />
               </FormControl>
               <PasswordField ref={passWordref} />
-            </Stack>w
-
+            </Stack>
+            w
             <Stack spacing='6'>
               <Button variant='solid' colorScheme='orange' onClick={handleAuth}>
                 {title}
