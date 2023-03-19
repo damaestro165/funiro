@@ -18,6 +18,7 @@ import { FaOpencart } from 'react-icons/fa';
 
 const CartPage = () => {
   const products = useSelector((state) => state.cart.products);
+  const user = useSelector((state) => state.user.user);
   const isCartEmpty = products.length === 0 ? false : true;
   const subTotal = Number(
     products.reduce((acc, product) => acc + product.price, 0).toFixed(2)
@@ -77,10 +78,10 @@ const CartPage = () => {
               <Text>
                 <Link href='/' color='blue.400'>
                   Go back to add items
-                </Link>{' '}
-                or{' '}
+                </Link>
+
                 <Link href='/login' color='blue.400'>
-                  login to see recommendation
+                  {!user ? 'or login to see recommendation' : ''}
                 </Link>
               </Text>
             </Flex>
