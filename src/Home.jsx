@@ -14,13 +14,24 @@ import Feature from './components/Feature';
 import ProductsSection from './components/ProductsSection';
 import Inspiration from './components/Inspiration';
 import Tips from './components/Tips';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 function Home() {
+
+   useGSAP(() => {
+     gsap.from('.heroBox', {
+          x:-300,
+          duration: 3,
+          ease:'power2.inOut',
+
+     })
+   })
   return (
     <Box className='relative w-full overflow-hidden '>
       <ImageCarousel />
       <VStack
-        className=' absolute w-[20rem] md:w-[25rem] md:p-12 p-5 top-[8rem] md:top-0 left-6 md:left-20 gap-2  md:gap-5'
+        className='heroBox absolute w-[20rem] md:w-[25rem] md:p-12 p-5 top-[8rem] md:top-0 left-6 md:left-20 gap-2  md:gap-5'
         position='absolute'
         backdropFilter='auto'
         backdropBlur='6px'

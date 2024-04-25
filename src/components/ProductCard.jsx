@@ -23,7 +23,7 @@ import {
 } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 
-const ProductCard = ({ data }) => {
+const ProductCard = ({ data , id }) => {
   const dispatch = useDispatch();
   const { products, liked } = useSelector(({ cart, favourite }) => {
     return {
@@ -80,7 +80,7 @@ const ProductCard = ({ data }) => {
   }
 
   return (
-    <Card onMouseOver={over} onMouseOut={out} variant='outline'>
+    <Card onMouseOver={over} onMouseOut={out} id={id} variant='outline'>
       <Image src={data.image} w='245px' h='265px' className=' object-cover' />
       <CardBody bg='#F4F5F7'>
         <Stack spacing={3}>

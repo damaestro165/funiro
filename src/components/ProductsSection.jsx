@@ -9,6 +9,9 @@ import Mug from '../assets/mug.png';
 import lamp from '../assets/lamp.png';
 import vast from '../assets/vast.png';
 import Chair from '../assets/chair.png';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const Products = [
   {
     image: Productone,
@@ -61,8 +64,24 @@ const Products = [
 ];
 
 function ProductsSection() {
+  useGSAP(()=>{
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('#productCard', {
+      scrollTrigger:{
+        trigger: '#productBox',
+        start: 'top bottom',
+        end: 'top top',
+        toggleActions: 'restart none none none',
+        scrub: true,
+      },
+      x:-150,
+      duration: 3,
+      ease: 'power2.inOut',
+      stagger: 0.2,
+    })
+  })
   return (
-    <Box>
+    <Box id="productBox">
       <Center>
         <Heading color='#3A3A3A' fontSize='3xl' my='5'>
           Our Products
@@ -71,7 +90,7 @@ function ProductsSection() {
       <Center className=' my-5'>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} spacing={10}>
           {Products.map((data, index) => (
-            <ProductCard data={data} key={index} />
+            <ProductCard id='productCard' data={data} key={index} />
           ))}
         </SimpleGrid>
       </Center>
