@@ -66,18 +66,18 @@ const Products = [
 function ProductsSection() {
   useGSAP(()=>{
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from('#productCard', {
+    gsap.to('#productCard', {
       scrollTrigger:{
         trigger: '#productBox',
-        start: 'top bottom',
+        start: 'top center',
         end: 'top top',
-        toggleActions: 'restart none none none',
+        toggleActions: 'restart pause play restart',
         scrub: true,
       },
-      x:-150,
+      opacity: 1,
       duration: 3,
       ease: 'power2.inOut',
-      stagger: 0.2,
+      stagger: 0.5,
     })
   })
   return (
@@ -90,7 +90,7 @@ function ProductsSection() {
       <Center className=' my-5'>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} spacing={10}>
           {Products.map((data, index) => (
-            <ProductCard id='productCard' data={data} key={index} />
+            <ProductCard id='productCard'  data={data} key={index} />
           ))}
         </SimpleGrid>
       </Center>

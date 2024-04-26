@@ -36,7 +36,6 @@ function Feature() {
       scrollTrigger:{
         trigger: '.features',
         start: 'top bottom',
-        
         toggleActions: 'restart none none none',
         scrub: true,
       },

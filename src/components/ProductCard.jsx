@@ -80,7 +80,7 @@ const ProductCard = ({ data , id }) => {
   }
 
   return (
-    <Card onMouseOver={over} onMouseOut={out} id={id} variant='outline'>
+    <Card onMouseOver={over} onMouseOut={out} id={id} variant='outline' opacity={0}>
       <Image src={data.image} w='245px' h='265px' className=' object-cover' />
       <CardBody bg='#F4F5F7'>
         <Stack spacing={3}>
