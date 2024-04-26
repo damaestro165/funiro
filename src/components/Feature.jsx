@@ -32,17 +32,20 @@ function Feature() {
 
   useGSAP(()=>{
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.features', {
+    gsap.to('.features', {
       scrollTrigger:{
         trigger: '.features',
         start: 'top bottom',
         toggleActions: 'restart none none none',
         scrub: true,
       },
-      x:-150,
+      opacity:1,
       duration: 3,
-      ease: 'power2.inOut',
-      stagger: 0.2,
+      ease: 'elastic.inOut',
+      stagger: {
+        each: 0.5,
+        from: 'center',
+      },
     })
   })
 
@@ -51,7 +54,7 @@ function Feature() {
       {FeatureData.map((data) => (
         <Box
           key={data.text}
-          className='features flex justify-center md:flex-row  flex-col items-center text-center gap-2 md:text-start'
+          className='features opacity-0 flex justify-center md:flex-row  flex-col items-center text-center gap-2 md:text-start'
         >
           <Image src={data.icon} width='2rem' />
           <Box gap={5} className=' '>

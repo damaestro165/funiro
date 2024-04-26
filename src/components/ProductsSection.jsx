@@ -77,7 +77,14 @@ function ProductsSection() {
       opacity: 1,
       duration: 3,
       ease: 'power2.inOut',
-      stagger: 0.5,
+      stagger: {
+        each: 0.5,
+        from: 'random',
+        grid: 'auto',
+        axis: 'x'
+
+
+      },
     })
   })
   return (
